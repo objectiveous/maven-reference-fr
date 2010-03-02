@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<book id="book-hibernate3devNotebook">
+<book id="book-hibernate3devNotebook" lang="fr">
   <title>${book.title}</title>
 
   <bookinfo>
@@ -19,7 +19,7 @@
       </affiliation>
     </editor>
 
-    <authorgroup role="Primary Authors">
+    <authorgroup role="Auteurs principaux">
       <author>
         <firstname>Tim</firstname>
 
@@ -67,7 +67,7 @@
       </author>
     </authorgroup>
 
-    <authorgroup role="Contributing Authors">
+    <authorgroup role="Auteurs ayant contribué">
       <author>
         <firstname>Eric</firstname>
 
@@ -78,6 +78,20 @@
         <firstname>Larry</firstname>
 
         <surname>Shatzer</surname>
+      </author>
+    </authorgroup>
+
+    <authorgroup role="Traducteurs">
+      <author>
+        <firstname>Emmanuel</firstname>
+
+        <surname>Hugonnet</surname>
+      </author>
+
+      <author>
+        <firstname>Erwan</firstname>
+
+        <surname>Alliaume</surname>
       </author>
     </authorgroup>
 
@@ -124,9 +138,6 @@
 
   <xi:include href="chapter-site-generation.xml"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
-
-  <!--    <xi:include href="chapter-reporting.xml"
-       xmlns:xi="http://www.w3.org/2001/XInclude"/> -->
 
   <xi:include href="chapter-writing-plugins.xml"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
