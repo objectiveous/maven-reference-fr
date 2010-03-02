@@ -439,8 +439,10 @@ $ <command>unzip flashplayer_10_sa_debug.app.zip</command>
 $ <command>sudo cp -r Flash\ Player.app /Applications/</command>
 $ <command>export PATH=/Applications/Flash\ Player.app/Contents/MacOS:${PATH}</command></screen>
 
-      <para>Plutôt que d'ajouter en ligne de commande le chemin de Flash Player à votre PATH, vous devriez configurer votre environnement. 
-      Sur OSX, il vous suffit d'ajouter cette dernière commande d'export à votre fichier <filename>~/.bash_profile</filename>.</para>
+      <para>Plutôt que d'ajouter en ligne de commande le chemin de Flash Player à votre PATH, vous 
+      devriez configurer votre environnement pour qu'il définisse utomatiquement ces variables. Si
+      vous utilisez bash, il vous suffit d'ajouter cette dernière commande d'export à votre
+      fichier <filename>~/.bash_profile</filename>.</para>
     </section>
 
     <section id="flex-dev-sect-plugin-group">
@@ -466,7 +468,7 @@ $ <command>export PATH=/Applications/Flash\ Player.app/Contents/MacOS:${PATH}</c
       Sans cette configuration, invocation du goal <varname>flexbuilder</varname> nécessite la 
       ligne de commande suivante :</para>
 
-      <screen>$ <command>mvn org.sonatype.flexmojos:flexmojos-maven-plugin:3.2.0:flexbuilder</command></screen>
+      <screen>$ <command>mvn org.sonatype.flexmojos:flexmojos-maven-plugin:${flexmojos.version}:flexbuilder</command></screen>
 
       <para>Avec le groupe org.sonatype.plugins dans votre configuration Maven, le même goal peut être invoqué comme suit :</para>
 
@@ -547,7 +549,7 @@ package: org.sonatype.test
 [INFO] BUILD SUCCESSFUL
 </screen>
 
-      <para>En regardant dans le répertoire <varname>sample-library/</varname>, vous verrez
+      <para>En regardant dans le répertoire <filename>sample-library/</filename>, vous verrez
       que le projet présente une arborescence comme dans la <xref
       linkend="fig-flex-dev-library-archetype-fs" />.</para>
 
@@ -574,11 +576,10 @@ package: org.sonatype.test
       <example id="fig-flex-dev-simple-lib-pom">
         <title>POM d'un archétype pour projet de bibliothèque Flex</title>
 
-        <programlisting>&lt;project xmlns="http://maven.apache.org/POM/4.0.0" 
+        <programlisting>&lt;project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
-                             http://maven.apache.org/maven-v4_0_0.xsd"&gt;
-
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                      http://maven.apache.org/maven-v4_0_0.xsd"&gt;
   &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
 
   &lt;groupId&gt;org.sonatype.test&lt;/groupId&gt;
@@ -586,7 +587,7 @@ package: org.sonatype.test
   &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
   &lt;packaging&gt;swc&lt;/packaging&gt;
 
-  &lt;name&gt;test Flex&lt;/name&gt;
+  &lt;name&gt;sample-library Flex&lt;/name&gt;
 
   &lt;build&gt;
     &lt;sourceDirectory&gt;src/main/flex&lt;/sourceDirectory&gt;
@@ -595,7 +596,7 @@ package: org.sonatype.test
       &lt;plugin&gt;
         &lt;groupId&gt;org.sonatype.flexmojos&lt;/groupId&gt;
         &lt;artifactId&gt;flexmojos-maven-plugin&lt;/artifactId&gt;
-        &lt;version&gt;${flexmojos.version}&lt;/version&gt;
+        &lt;version&gt;3.5.0&lt;/version&gt;
         &lt;extensions&gt;true&lt;/extensions&gt;
       &lt;/plugin&gt;
     &lt;/plugins&gt;
@@ -609,17 +610,58 @@ package: org.sonatype.test
       &lt;type&gt;pom&lt;/type&gt;
     &lt;/dependency&gt;
 
-    &lt;!-- flexmojos Unit testing support --&gt;
     &lt;dependency&gt;
-      &lt;groupId&gt;org.sonatype.flexmojos&lt;/groupId&gt;
-      &lt;artifactId&gt;flexmojos-unittest-support&lt;/artifactId&gt;
-      &lt;version&gt;${flexmojos.version}&lt;/version&gt;
+      &lt;groupId&gt;com.adobe.flexunit&lt;/groupId&gt;
+      &lt;artifactId&gt;flexunit&lt;/artifactId&gt;
+      &lt;version&gt;0.85&lt;/version&gt;
       &lt;type&gt;swc&lt;/type&gt;
       &lt;scope&gt;test&lt;/scope&gt;
     &lt;/dependency&gt;
   &lt;/dependencies&gt;
 
-&lt;/project&gt;</programlisting>
+  &lt;profiles&gt;
+    &lt;profile&gt;
+      &lt;id&gt;m2e&lt;/id&gt;
+      &lt;activation&gt;
+        &lt;property&gt;
+          &lt;name&gt;m2e.version&lt;/name&gt;
+        &lt;/property&gt;
+      &lt;/activation&gt;
+      &lt;build&gt;
+        &lt;plugins&gt;
+          &lt;plugin&gt;
+            &lt;groupId&gt;org.maven.ide.eclipse&lt;/groupId&gt;
+            &lt;artifactId&gt;lifecycle-mapping&lt;/artifactId&gt;
+            &lt;version&gt;0.9.9-SNAPSHOT&lt;/version&gt;
+            &lt;configuration&gt;
+              &lt;mappingId&gt;customizable&lt;/mappingId&gt;
+              &lt;configurators&gt;
+                &lt;configurator
+      id='org.maven.ide.eclipse.configuration.flex.configurator' /&gt;
+              &lt;/configurators&gt;
+              &lt;mojoExecutions&gt;
+                &lt;mojoExecution&gt;
+                  org.apache.maven.plugins:maven-resources-plugin::
+                &lt;/mojoExecution&gt;
+              &lt;/mojoExecutions&gt;
+            &lt;/configuration&gt;
+          &lt;/plugin&gt;
+        &lt;/plugins&gt;
+        &lt;pluginManagement&gt;
+          &lt;plugins&gt;
+            &lt;plugin&gt;
+              &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+              &lt;artifactId&gt;maven-resources-plugin&lt;/artifactId&gt;
+              &lt;version&gt;2.4&lt;/version&gt;
+            &lt;/plugin&gt;
+          &lt;/plugins&gt;
+        &lt;/pluginManagement&gt;
+      &lt;/build&gt;
+    &lt;/profile&gt;
+  &lt;/profiles&gt;
+
+&lt;/project&gt;
+</programlisting>
       </example>
 
       <para>L'<xref linkend="fig-flex-dev-simple-lib-pom" /> est très simple, le 
@@ -825,7 +867,6 @@ package: org.sonatype.test
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
                              http://maven.apache.org/maven-v4_0_0.xsd"&gt;
-
   &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
 
   &lt;groupId&gt;org.sonatype.test&lt;/groupId&gt;
