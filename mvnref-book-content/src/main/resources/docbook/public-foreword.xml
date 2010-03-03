@@ -2,18 +2,18 @@
 <!DOCTYPE preface PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <preface id="public-foreward">
-  <title>Foreword: ${project.version}</title>
+  <title>Avant-propos : ${project.version}</title>
 
-  <para>We've had some great feedback so far, please keep it coming. Your
-  feedback is greatly appreciated, send it to <ulink
-  url="mailto:book@sonatype.com">book@sonatype.com</ulink>. To keep yourself
-  informed of updates, read the book blog at: <ulink
-  url="http://blogs.sonatype.com/book">http://blogs.sonatype.com/book</ulink>.
-  Everyone at Sonatype has had a hand in this version of the book, so the
-  author is officially "Sonatype".</para>
+  <para>Jusqu'à présent nous avons eu beaucoup de retours, ne vous arrêtez pas. Ceux-ci sont très
+  apprécies, aussi envoyez les à <ulink
+  url="mailto:book@sonatype.com">book@sonatype.com</ulink>. Pour être averti des mises à jour,
+  lisez le blog du livre : <ulink
+  url="http://blogs.sonatype.com/book">http://blogs.sonatype.com/book</ulink>. Tout le monde à
+  Sonatype a mis la main à la pâte pour cette version du livre, c'est pourquoi l'auteur est
+  officiellement "Sonatype".</para>
 
-  <para>Please report any bugs or issues on this book's GetSatisfaction page,
-  here: <ulink
+  <para>Soumettez tout bug ou problème rencontré sur la page GetSatisfaction dédiée pour ce livre,
+  ici : <ulink
   url="http://www.getsatisfaction.com/sonatype/products/sonatype_maven_the_complete_reference">http://www.getsatisfaction.com/sonatype/products/sonatype_maven_the_complete_reference</ulink>.</para>
 
   <para>Tim O'Brien (tobrien@sonatype.com)</para>
