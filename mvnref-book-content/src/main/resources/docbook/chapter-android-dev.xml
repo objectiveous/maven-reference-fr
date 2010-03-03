@@ -45,73 +45,61 @@
     <section id="android-dev-sect-sdk-install">
       <title>Installation du SDK Android</title>
 
-      <para>
+      <para>Le plugin Android Maven nécessite la présence du SDK Android dans votre environnement de développement.
+      La variable d'environnement <varname>ANDROID_HOME</varname> doit être configurée pour pointer vers le répertoire d'installation du SDK Android.
+      Le SDK doit être installé en suivant les consignes du site web Android Developer dont voici l'adresse <uri>http://developer.android.com/sdk/index.html</uri>. 
+      Par exemple, si le sdk est installé dans le répertoire <varname>/opt/android-sdk-linux </varname>, 
+      la commande suivante permet d'initialiser cette variable correctement <programlisting>export ANDROID_HOME=/opt/android-sdk-linux</programlisting> sur un environnement Unix/bash.
+      Sous Windows, utilisez la commande suivante : <programlisting>set ANDROID_HOME=C:\\opt\android-sdk-linux</programlisting></para>
 
-The Maven Android Plugin requires the presence of the Android SDK in your development environment. 
-The <varname>ANDROID_HOME</varname> environment variable should be configured to point to the installation directory of the Android SDK. 
-The SDK should be installed following the directions on the Android Developer web site at <uri>http://developer.android.com/sdk/index.html</uri>. 
-For example, if the SDK is installed in /opt/android-sdk-linux this can be achieved with
-      <programlisting>export ANDROID_HOME=/opt/android-sdk-linux</programlisting>
-on a Unix/bash based system or <programlisting>set ANDROID_HOME=C:\\opt\android-sdk-linux</programlisting> 
-on a Windows system.</para>
-
-      <para>
-
-In addition to the SDK, the various platform versions you need for development should also be installed. 
-Instructions for this process are located at <uri>http://developer.android.com/sdk/adding-components.html</uri>. 
-You can install a subset of available platforms or simply install all available versions. 
-Optionally, the path <varname>ANDROID_HOME/tools</varname> can be added to the PATH variable to allow easy command line execution of the various tools provided with the SDK.</para>
+      <para>En plus du SDK, les différentes versions des plates-formes dont vous avez besoin pour le développement doivent également être installées.
+      Les consignes d'installation sont détaillées à cette adresse : <uri>http://developer.android.com/sdk/adding-components.html</uri>. 
+      Vous pouvez installer les versions des plates-formes que vous vous avez besoin, ou, plus simplement, vous contenter d'installer toutes les plates-formes.
+      De plus, vous pouvez également rajouter le répertoire <varname>ANDROID_HOME/tools</varname> à votre <varname>PATH</varname> pour vous faciliter l'utilisation des différents outils fournis par le SDK en ligne de commande.</para> 
     </section>
 
     <section id="android-dev-sect-repository-install">
-      <title>Android artifact install into Maven repository</title>
+      <title>Installation des artifacts Android dans un dépôt Maven</title>
 
-      <para>
-
-Once the SDK is installed you will need to provide the API JAR files to Maven in a repository. 
-The Maven Android SDK Deployer tool allows you to do that for a single machine in a local repository as well as for any number of machines in a remote repository server. <!-- TODO link to nexus... in general how much do we have
+      <para>Une fois que le SDK est installé, vous devez mettre à disposition les différents JARs d'API dans un dépôt Maven. 
+      L'outil Maven Android SDK Deployer vous permet d'effectuer cette tâche en déployant ces JARs soit dans votre dépôt local, soit sur un dépôt distant.
+<!-- TODO link to nexus... in general how much do we have
         to explain here about this stuff, i would prefer to add links to the nexus book chapters somehow.. --></para>
 
-      <para>The Maven Android SDK deployer tool is available for download at:</para>
+      <para>Cet outil, le Maven Android SDK Deployer est disponible à cette adresse :</para>
 
       <para><uri>http://github.com/mosabua/maven-android-sdk-deployer</uri></para>
 
-      <para>
-
-Simply click on the <varname>Download Source</varname> button and extract the downloaded zip or tar archive in a folder of your choice. 
-A folder with a naming pattern of mosabua-maven-android-sdk-deployer-XXX with XXX being a revision number like df824df will be created. 
-Change directories to this new maven-android-sdk directory: <programlisting>cd mosabua-maven-android-sdk-deployer-df824df</programlisting></para>
+      <para>Cliquez simplement sur le button <varname>Download Source</varname> et dézippez l'archive téléchargée dans le dossier de votre choix.
+      Un dossier avec urn nom du type <varname>mosabua-maven-android-sdk-deployer-XXX</varname> sera alors créé. 
+      <varname>XXX</varname> désignant un numéro de révision du type <varname>df824df</varname>. 
+      Déplacez-vous ensuite dans ce nouveau répertoire :<programlisting>cd mosabua-maven-android-sdk-deployer-df824df</programlisting></para>
 
       <section id="android-dev-sect-repository-install-local">
-        <title>Installation to local repository</title>
+        <title>Installation dans votre dépôt local</title>
 
-        <para>
-
-In order to install the android API jar files from the different platform revisions into your local repository 
-you run the command in the deployer folder.<programlisting>mvn clean install</programlisting>.
-By default this will install all android.jar and maps.jar files into your local Maven repository. 
-You should find all newly installed files in the <varname>android</varname> and <varname>com.google.android.maps</varname> group identifiers under
-<filename>~/.m2/repository</filename>.</para>
+        <para>Pour installer les JARs d'API de différentes versions de plates-formes dans votre dépôt local, 
+        vous pouvez exécuter la commande  suivante à partir du dossier de votre deployer : <programlisting>mvn clean install</programlisting>.
+	Par défaut, cette commande installe les JARs <varname>android.jar</varname> et <varname>mas.jar</varname> dans votre dépôt local.
+	Vous devriez donc trouver ces fichiers tout juste installés dans les groupes <varname>android</varname> et <varname>com.google.android.maps</varname> 
+        dans le répertoire <filename>~/.m2/repository</filename>.</para>
       </section>
 
       <section id="android-dev-sect-repository-install-remote">
-        <title>Installation to remote repository</title>
+        <title>Installation dans urn depot distant</title>
 
-        <para>
+        <para>Le mécanisme précédent fonctionne très bien pour une seule machine, mais si vous devez fournir ces artefacts à une équipe de développeurs,
+        vous voudrez probablement déployer ces mêmes artefacts sur un dépôt distant accessible par l'ensemble des utilisateurs.
+	Si vous n'utilisez pas de gestionnaire de dépôt, envisagez l'installation de Nexus avec un utilisateur configuré pour déployer les artefacts sur un dépôt.
+	Pour cela, nous vous encourageons à lire les consignes d'installation de Nexus qui sont disponibles gratuitement à cette adresse dans son livre en ligne :
+        <ulink url="http://www.sonatype.com/books/nexus-book/reference/install.html">Nexus Installation chapter</ulink>.</para>
 
-The above deployment works fine for one machine, but if you need to supply a whole team of developers and a cluster of build machines with the artifacts, 
-you will want to deploy the artifacts once to a remote repository server that is available to all users. 
-If you are not currently using a repository manager, you should download Nexus and configure a user with permission to deploy artifacts to a repository. 
-To get started with Nexus, 
-read the <ulink url="http://www.sonatype.com/books/nexus-book/reference/install.html">Nexus Installation chapter</ulink> in the free, online Nexus book.</para>
-
-        <para>
-
-As a first step you will need to edit the <varname>repo.url</varname> property in the pom.xml in the top folder of the Maven Android SDK Deployer tool to point to the repository you want to publish to. 
-Then you need to add a server with the correct access credentials for the server to your Maven Settings file (<filename>~/.m2/settings.xml</filename>). 
+        <para>En premier lieu, vous devez renseigner la propriété <varname>repo.url</varname> dans le <varname>pom.xml</varname> 
+        de plus haut niveau dans l'arborescence de dossier de l'outil  Android SDK Deployer afin de configurer le dépôt dans lequel vous voulez publier vos artefacts.
+	Ensuite, vous devez ajouter un serveur dans les settings Maven dans le fichier <filename>~/.m2/settings.xml</filename>.
 
 	<example>
-            <title>Snippet for settings.xml for the repository server access credentials</title>
+            <title>Extrait du fichier <varname>settings.xml</varname> qui indique les accès au dépôt et ses données d'authentification</title>
 
             <programlisting>&lt;settings&gt;
     &lt;servers&gt;
@@ -124,38 +112,34 @@ Then you need to add a server with the correct access credentials for the server
 &lt;/settings&gt;
 </programlisting>
           </example>
-
-Once that configuration is completed you can deploy the artifacts with the command <command>mvn deploy</command>. 
-As a result you should find the artifact in the repository of your remote server.
+	Une fois cette configuration effectuée, vous pouvez déployer vos artefacts en utilisant la commande <command>mvn deploy</command>. 
+	Lorsque celle-ci est terminée, vous devriez être capable de retrouver ces artefacts sur votre serveur distant.
         <!-- TODO ??
           For more information about this stuff look at the documentation for the maven-deploy-plugin.
           or better chapter bla in this book.. --></para>
       </section>
 
       <section id="android-dev-sect-repository-install-parts">
-        <title>Installation of a subset of all platforms</title>
+        <title>Installation dune partie des plates-formes</title>
 
-        <para>
-
-By default the Maven Android SDK Deployer tool will attempt to install or deploy all versions of the platforms artifacts into a repository. 
-If you decide to only install a subset of the components the tool can be used with profile options to only install or deploy some artifacts. 
-This can be done by specifying the platform API versions as a profile name: <programlisting>mvn install -P 2.1</programlisting>Available
-        profile names are <varname>1.1</varname>, <varname>1.5</varname>,
+        <para>Par défaut, l'outil Maven Android SDK Deployer est configuré pour installer toutes les versions des artefacts de toutes les plates-formes Android dans un dépôt.
+	Si vous désirez n'installer qu'une partie de ces plateformes, voire une seule, vous pouvez utiliser différentes options par l'intermédiaire de <varname>profile</varname>.
+	Pour cela, vous devez spécifier les versions que vous désirez par l'intermédiaire de leur nom de <varname>profile</varname> correspondant : 
+	<programlisting>mvn install -P 2.1</programlisting>
+	Les noms de profiles actuellement disponibles sont : <varname>1.1</varname>, <varname>1.5</varname>,
         <varname>1.6</varname>, <varname>2.0</varname> and
         <varname>2.1</varname>.</para>
       </section>
     </section>
 
     <section id="android-dev-sect-plugin-config">
-      <title>Configuring Maven for usage of the Maven Android Plugin</title>
+      <title>Configurer Maven pour qu'il utilise le Maven Android Plugin</title>
 
-      <para>
-
-In order to use the Maven Android Plugin goals on the command line with the short plugin name <varname>android</varname>, 
-you have to add the following <varname>pluginGroups</varname> snippet to your <varname>settings.xml</varname> file.</para>
+      <para>Afin de pouvoir utiliser les goals du Maven Android Plugin à partir de la ligne de commande en utilisant la version courte du nom du plugin <varname>android</varname>,
+      vous devez ajouter l'extrait de configuration suivant dans votre fichier <varname>settings.xml</varname>.</para>
 
       <example>
-        <title>Snippet for settings.xml to enable short plugin name usage</title>
+        <title>Extrait du <varname>settings.xml</varname> pour pouvoir utiliser le plugin avec son nom court</title>
 
         <programlisting>&lt;pluginGroups&gt;
    &lt;pluginGroup&gt;
@@ -167,24 +151,20 @@ you have to add the following <varname>pluginGroups</varname> snippet to your <v
   </section>
 
   <section id="android-dev-sect-using">
-    <title>Android Application Development with the Maven Android Plugin</title>
+    <title>Développement d'applications Android avec le Maven Android Plugin</title>
 
     <section id="android-dev-sect-helloandroidexample">
-      <title>HelloFlashlight Example</title>
+      <title>Exemple HelloFlashlight</title>
 
-      <para>
+      <para>L'exemple HelloFlashlight va nous servir de point de départ pour présenter le plugin Maven Android Plugin.
+      Vous pouvez suivre ces mêmes étapes pour sur applications Android pour qu'elles utilisent le Maven Android Plugin comme outil de build.
+      Une fois que votre environnement est correctement configuré (tel que nous venons de le décrire dans les paragraphes précédents),
+      créez un nouveau projet Android en utilisant les Android Development Tools (ADT) <uri>http://developer.android.com/sdk/eclipse-adt.html</uri>.</para>
 
-The HelloFlashlight example application serves as a starting point to introduce you to the usage of the Maven Android Plugin. 
-You can follow the same steps to introduce an Maven Android Plugin based build to your Android application. 
-After the initial environment setup documented above, the Android Development Tools from
-<uri>http://developer.android.com/sdk/eclipse-adt.html</uri> were installed and used to create a new Android project.</para>
-
-      <para>
-
-To enable a Maven based build of the project the following pom.xml file was added in the root folder of the project:</para>
+      <para>Pour activer le build Maven d'un tel projet, ajoutez le <varname>pom.xml</varname> ci-dessous dans le dossier principal de votre projet :</para>  
 
       <example>
-        <title>The HelloFlashlight pom.xml file</title>
+        <title><varname>pom.xml</varname> du projet HelloFlashlight</title>
 
         <programlisting>  &lt;?xml version="1.0" encoding="UTF-8"?&gt;
   &lt;project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -239,93 +219,80 @@ To enable a Maven based build of the project the following pom.xml file was adde
         </programlisting>
       </example>
 
-      <para>The highlights of this pom.xml are: <itemizedlist>
+      <para>Veuillez noter les points suivants dans ce <varname>pom.xml</varname> : <itemizedlist>
           <listitem>
-            <para>the <varname>packaging</varname> type of
+            <para>Le type de <varname>packaging</varname> est
             <varname>apk</varname></para>
           </listitem>
 
           <listitem>
-            <para>the dependency to the Android platform jar</para>
+            <para>la dépendance vers le jar de la plate-forme</para>
           </listitem>
 
           <listitem>
-            <para>and the build configuration with the Maven Android Plugin
-            and the Compiler Plugin</para>
+            <para>la configuration du <varname>build</varname> avec les plugins Maven Android Plugin
+            et Compiler Plugin</para>
           </listitem>
         </itemizedlist></para>
 
-      <para>
+      <para>Le type de <varname>packaging</varname> <varname>apk</varname> permet d'activer le cycle de vie spécifique à Android.
+      Il prend soin de tous les appels aux outils du SDK Android,  gestion des ressources, conversion du bytecode Java…</para> 
 
-The Android Package <varname>packaging</varname> type <varname>apk</varname> is what activates the Android-specific lifecycle modifications of the Maven Android Plugin. 
-It takes care of all the specific calls to the Android SDK tools, that process resources, convert Java bytecode and so on.</para>
-
-      <para>
-
-The declared dependency to the android platform jar has to use the version of the target platform as published into the Maven repository by the Maven Android SDK Deployer.
-It, in turn, takes the library version from the <varname> Platform.Version</varname> and the <varname>Pkg.Revision</varname> values in the
-<varname>source.properties</varname> file in the respective platforms folder of the Android SDK. 
-The current valid values are <varname>1.1_r1</varname>, <varname>1.5_r3</varname>,
+      <para>La dépendance vers le JAR de la plate-forme doit utiliser la version de la cible telle qu'elle a été publiée dans le dépôt Maven par l'Android SDK Deployer.
+      Il récupère les versions à partir des valeurs <varname>Platform.Version</varname> et <varname>Pkg.Revision</varname> 
+      renseignées dans le fichier de propriétés <varname>source.properties</varname> qui se trouve dans le dossier de la plate-forme du SDK Android.
+      Les valeurs possibles sont à ce jour : <varname>1.1_r1</varname>, <varname>1.5_r3</varname>,
       <varname>1.6_r2</varname>, <varname>2.0_r1</varname>,
       <varname>2.0.1_r1</varname> and <varname>2.1_r1</varname>. 
-Simply browse the android folder of your maven repository/repository server to see what the exact versions are.</para>
+      Naviguez simplement dans votre dépôt pour connaître la liste exacte de ces versions.</para>
 
-      <para>
+      <para>La configuration du plugin Maven Compiler dans le <varname>build</varname> est nécessaire 
+      car Android utilise les fonctionnalités de Java 5 telles que les annotations ou les boucles simplifiées.
+      La configuration principale du plugin Maven Android est également effectuée dans cette section <varname>build</varname>.
+      Dans la majorité des cas, peu de configuration est nécessaire.</para>
+      
 
-The configuration of the Maven Compiler Plugin in the build is necessary since Android uses Java 5 language specification code with annotations, 
-foreach loop and so on and the Java compiler needs to know that. 
-The main configuration of the Maven Android Plugin is done in the build section, but out of the box only limited configuration is necessary.</para>
-
-      <para>
-
-To build the application and run it on an already started emulator you could use <programlisting>mvn clean install android:deploy</programlisting>.<!--TODO potentially add commandline output for build here-->
-The code for the example application is available as part of the maven-android-plugin-samples available at
+      <para>Pour construire l'application et l'exécuter sur un émulateur déjà lancé, vous pouvez utiliser la commande 
+      <programlisting>mvn clean install android:deploy</programlisting>.<!--TODO potentially add commandline output for build here-->
+      Le code de l'application d'exemple est disponible dans les <varname>maven-android-plugin-samples</varname> à cette adresse :
       <uri>http://code.google.com/p/maven-android-plugin/wiki/Samples</uri>.</para>
     </section>
 
     <section id="android-dev-sect-test">
-      <title>Testing Android Application Code</title>
+      <title>Test du code d'une application Android</title>
 
-      <para>
-
-Testing Android Application code can be done in a unit test fashion with rich junit support as part of the Android SDK 
-as well as integration type testing called instrumentation testing.</para>
+      <para>Le test du code d'une application Android peut-être effectué à la manière d'un test unitaire traditionnel <varname>junit</varname> dans le cadre de l'Android SDk,
+      mais aussi par l'intermédiaire de tests d'intégration. Ces derniers sont appelés 'instrumentation tests'.</para>
 
       <section id="android-dev-sect-test-unit">
-        <title>Unit tests</title>
+        <title>Tests unitaires</title>
 
-        <para>
-The Maven Android plugin includes the execution of the Surefire plugin and as such unit tests can be included in the project like in any other project. 
-The default path for test classes in the Eclipse and therefore Android Development Toolkit is <varname>test</varname>
-and therefore Maven has to be configured to access code from there with the configuration <example>
-            <title>Adding the test folder to the build configuration</title>
+        <para>Le plugin Android Maven lance l'exécution des tests unitaires à la manière du plugin Surefire.
+        Comme le chemin par défaut des classes de tests dans Eclipse et dans l'Android Development Toolkit est <varname>test</varname>,
+	Maven doit être configuré spécifiquement pour qu'il puisse accéder à ce code. <example>
+            <title>Ajout d'un dossier <varname>test</varname> dans la configuration <varname>build</varname></title>
 
             <programlisting>&lt;build&gt;
   &lt;testSourceDirectory&gt;test&lt;/testSourceDirectory&gt;
   ...          </programlisting>
           </example>
-Alternatively the Maven conventions can be implemented by moving the source code for the application and the test source code
-into <varname>src/main/java</varname> and <varname>src/test/java</varname> and reconfiguring the Eclipse project files.</para>
+	D'une autre manière, il vous est également possible de suivre les conventions Maven et de déplacer le code de votre application et de vos tests dans les répertoires
+	<varname>src/main/java</varname> et <varname>src/test/java</varname> et de réconfigurer Eclipse pour qu'il suive ce pattern.</para>
       </section>
 
       <section id="android-dev-sect-test-instrumentation">
-        <title>Instrumentation tests</title>
+        <title>Test d'instrumentation</title>
 
-        <para>
+        <para>Les tests d'instrumentation sont des tests d'intégration packagés dans une application qui est lancée dans un émulateur ou un téléphone
+	et qui interagit avec une autre application pour tester son comportement.
+	La configuration standard pour exécuter les ces tests d'instrumentation est d'avoir deux projets distincts :
+	l'un pour l'application, l'autre pour les tests d'intrumentation.
+	Ces modules sont liés par l'intermédiaire des balises <varname>module</varname> du pom parent.</para>
 
-Instrumentation tests are integration tests bundled into an application that run on the emulator or device 
-and interact with another deployed application to test the behaviour. 
-The common setup to run instrumentation tests would be two parallel projects, 
-one for the application and one for the instrumentation tests. 
-These modules are tied together as modules of a parent pom.</para>
-
-        <para>
-
-The Maven Android Plugin Samples codebase contains two examples for a project set up in this manner. 
-The setup of the instrumentation test application with the Maven Android Plugin is the same as 
-for a normal application with the added dependency to the application that needs to be tested. 
-It is important to add the <varname>type</varname> of <varname>apk</varname> to the dependency 
-to allow the Maven Android Plugin to find the Android package of the application.
+        <para>Le code du Maven Android Plugin Samples contient deux exemples de projets configurés de cette manière.
+	La configuration du plugin Maven Android pour l'application contenant les tests d'instrumentation 
+	est la même que pour celle de l'application principale avec une seule différence : l'ajout d'une dépendance vers l'application principale.
+	Il est important d'ajouter le <varname>type</varname> de l'<varname>apk</varname> sur cette dépendance pour permettre au plugin Maven Android de trouver le package de l'application.
         <programlisting>&lt;dependency&gt;
   &lt;groupId&gt;com.simpligility.android&lt;/groupId&gt;
   &lt;artifactId&gt;intents&lt;/artifactId&gt;
