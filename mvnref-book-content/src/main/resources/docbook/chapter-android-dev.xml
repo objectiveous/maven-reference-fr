@@ -370,8 +370,6 @@
 
       <para>Lorsque vous utilisez le plugin Maven Android, trois types de dépendances sont pris en compte.</para>
 
-When using the Maven Android plugin there are three types of dependencies that are treated differently.</para>
-
       <variablelist>
         <varlistentry>
           <term>Dépendances vers d'autres bibliothèques Java libraries</term>
