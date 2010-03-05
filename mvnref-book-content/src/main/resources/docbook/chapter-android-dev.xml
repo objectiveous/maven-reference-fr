@@ -443,73 +443,60 @@
   </section>
 
   <section id="android-dev-sect-custom-details">
-    <title>Maven Android Plugin Details</title>
+    <title>Plugin Maven Android en détails</title>
 
     <section id="android-dev-sect-custom-lifecycle">
-      <title>Maven Android Plugin Lifecycle</title>
+      <title>Cycle de vie du plugin Maven Android</title>
 
       <para><indexterm>
-          <primary>Maven Android Plugin</primary>
+          <primary>Plugin Maven Android</primary>
 
-          <secondary>lifecycle</secondary>
-        </indexterm>The Android Maven plugin customizes the lifecycle based on
-      the packaging. If your project has a <varname>packaging</varname> of
-      type<varname>apk</varname> the Android plugin will execute a customized
-      lifecycle.</para>
+          <secondary>cycle de vie</secondary>
+        </indexterm>Le plugin Maven Android personnalise le cycle de vie en fonction du type de packaging.
+	Si votre projet est du type APK, le plugin Maven Android exécutera son cycle de vie spécifique.</para>
 
-      <para>The customised life cycle has the following additional executions
-      in the default lifecycle.</para>
+      <para>Voici la description des différentes phases de ce cycle de vie personnalisé.</para>
 
       <variablelist>
         <varlistentry>
-          <term>generate-sources Phase</term>
+          <term>Phase generate-sources</term>
 
           <listitem>
-            <para>Use the Android Asset Packaging Tool
-            (<varname>aapt</varname>) of the platform version specified in the
-            pom to package the Android specific resources like
-            <varname>AndroidManifest.xml</varname>, assets and
-            resources.</para>
+            <para>Utilise l'Android Asset Packaging Tool (<varname>aapt</varname>) de la plateforme spécifiée dans le pom pour packager certaines ressources comme le fichier 
+            <varname>AndroidManifest.xml</varname>, les assets et  les ressources.</para>
           </listitem>
         </varlistentry>
 
         <varlistentry>
-          <term>process-classes Phase</term>
+          <term>Phase process-classes</term>
 
           <listitem>
-            <para>Run the <varname>dx</varname> tool of the platform version
-            specified in the pom to convert all classes (libraries, resources
-            and project code) into davlik executable format.</para>
+            <para>Exécute l'outil <varname>dx</varname> de la plateforme spécifiée dans le pom pour convertir toutes les classes 
+	    (bibliothèques, ressources et code du projet) en code exécutable au format Dalvik.</para>
           </listitem>
         </varlistentry>
 
         <varlistentry>
-          <term>package Phase</term>
+          <term>Phase package</term>
 
           <listitem>
-            <para>Run the Android Package tool (<varname>apk</varname>) of the
-            Android SDK to create and sign the Android package file (apk) for
-            installation on the emulator or device.</para>
+            <para>Exécute l'outil de packaging Android (<varname>apk</varname>) du SDK pour créer et signer le package APK pour qu'il puisse être installé sur un émulateur ou un téléphone.</para>
           </listitem>
         </varlistentry>
 
         <varlistentry>
-          <term>pre-integration-test Phase</term>
+          <term>Phase pre-integration-test</term>
 
           <listitem>
-            <para>Deploy the currently built Android application package (apk)
-            as well as any other dependencies with
-            <varname>packaging</varname> type <varname>apk</varname> to the
-            emulator/device.</para>
+            <para>Déploie le package de l'application Android (APK) comme n'importe quelle dépendance du type de packaging APK sur l'émulateur ou le téléphone.</para>
           </listitem>
         </varlistentry>
 
         <varlistentry>
-          <term>integration-test Phase</term>
+          <term>Phase integration-test</term>
 
           <listitem>
-            <para>Run the instrumentation test classes against the deployed
-            application.</para>
+            <para>Exécute les classes de test d'instrumentation pour tester l'application déployée.</para>
           </listitem>
         </varlistentry>
       </variablelist>
