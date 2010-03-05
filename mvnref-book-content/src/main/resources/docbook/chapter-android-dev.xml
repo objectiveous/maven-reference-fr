@@ -330,41 +330,33 @@
     </section>
 
     <section id="android-dev-sect-multimodule">
-      <title>Multi Module Maven Android Projects</title>
+      <title>Projets Maven Android multi projets</title>
 
-      <para>
-
-The Maven Android Plugin can be used in a multi-module project setup. An example setup would be 3 different modules linked via a parent pom.</para>
+      <para>Le plugin Maven Android peut être utilisé pour configurer un projet multimodule, comme par exemple ici, 3 modules liés à un même parent.</para>
 
       <variablelist>
         <varlistentry>
-          <term>Java Library Code</term>
+          <term>Bibliothèque de code Java</term>
 
           <listitem>
-            <para>
-
-This first module could contain any business logic implemented in Java, or any other JVM based language actually, in a jar package.</para>
+            <para>Ce premier module contient la logique business implémentée en Java, ou tout autre langage tournant sur la JVM, dans un jar.</para>
           </listitem>
         </varlistentry>
 
         <varlistentry>
-          <term>Android Application Code</term>
+          <term>Code de l'application Android</term>
 
           <listitem>
-            <para>
-
-This second module would depend on the first module and consist of all the interface code for the Android platform. 
-It would need to use apk packaging and the Maven Android Plugin.</para>
+            <para>Ce second module dépend du premier, il contient le code dépendant de la plateforme Android. 
+	    Ce module doit être du type <varname>APK</varname> et avoir configuré le plugin Android.</para>
           </listitem>
         </varlistentry>
 
         <varlistentry>
-          <term>Instrumentation Test</term>
+          <term>Tests d'instrumentation</term>
 
           <listitem>
-            <para>
-
-This third module would depend on the second module and implement the integration test of the application.</para>
+            <para>Ce troisième module dépend du second module, il implémente les différents tests d'intégration de l'application.</para>
           </listitem>
         </varlistentry>
       </variablelist>
