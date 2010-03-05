@@ -503,26 +503,23 @@
     </section>
 
     <section id="android-dev-sect-goals">
-      <title>Maven Android Plugin Goals</title>
+      <title>Goals du plugin Maven Android</title>
 
       <para><indexterm>
           <primary>Maven Android</primary>
 
-          <secondary>plugin goals</secondary>
-        </indexterm> The Maven Android Plugin contains the following
-      goals:</para>
+          <secondary>goals de plugin</secondary>
+        </indexterm> Le plugin Maven Android contient les goals suivants :</para>
 
       <variablelist>
         <varlistentry>
           <term>android:apk</term>
 
           <listitem>
-            <para>
-
-The <varname>apk</varname> goal creates the android package (apk) file. 
-By default the plugin signs the file with the debug keystore. 
-The configuration parameter <programlisting>&lt;sign&gt;&lt;debug&gt;false&lt;debug&gt;&lt;sign&gt;
-</programlisting> can be used to disable the signing process.</para>
+            <para>Le goal <varname>apk</varname> lance la création du package android (apk).
+	    Par défaut, le plugin signe le fichier en utilisant le keystore de debug.
+	    Le paramètre <programlisting>&lt;sign&gt;&lt;debug&gt;false&lt;debug&gt;&lt;sign&gt;</programlisting> peut 
+	    être configuré pour désactiver ce mécanisme.</para> 
           </listitem>
         </varlistentry>
 
@@ -530,12 +527,9 @@ The configuration parameter <programlisting>&lt;sign&gt;&lt;debug&gt;false&lt;de
           <term>android:deploy</term>
 
           <listitem>
-            <para>
-
-The <varname>deploy</varname> goal deploys the built apk file, or another specified apk, to a connected device or emulator.
-This goal is automatically performed when running through the <varname>integration-test</varname> lifecycle phase on a project
-with instrumentation tests (e.g. <command>mvn install</command> or
-            <command>mvn integration-test</command>).</para>
+            <para>Le goal <varname>deploy</varname lance le déploiement d'un fichier APK vers un émulateur ou un téléphone connecté.
+	    Ce goal est automatiquement lancé lors de l'exécution de la phase <varname>integration-test</varname> lorsqu'un projet contient des tests d'instrumentation
+	    (<command>mvn install</command> ou <command>mvn integration-test</command>).</para>
           </listitem>
         </varlistentry>
 
@@ -543,15 +537,11 @@ with instrumentation tests (e.g. <command>mvn install</command> or
           <term>android:deploy-dependencies</term>
 
           <listitem>
-            <para>
-
-The <varname>deploy-dependencies</varname> goal deploys all directly declared dependencies of
-            <varname>&lt;type&gt;apk&lt;/type&gt;</varname> in this project.
-This goal is usually used in a project with instrumentation tests, 
-to deploy the apk to test onto the device before running the deploying and running the instrumentation tests apk. 
-The goal is automatically performed when running through the integration-test life cycle phase on a project with instrumentation tests (e.g.
-            <command>mvn install</command> or <command>mvn
-            integration-test</command>).</para>
+            <para>Le goal <varname>deploy-dependencies</varname> déploie toutes les dépendances directes du type <varname>&lt;type&gt;apk&lt;/type&gt;</varname> dans ce projet.
+	    Ce goal est souvent utilisé sur un projet qui contient des tests d'instrumentation pour déployer 
+	    l'APK de l'application à tester avant le déploiement de l'APK contenant les classes de tests. 
+	    Ce goal est automatiquement exécuté  lors de la phase  <varname>integration-test</varname> lorsqu'un projet contient des tests d'instrumentation
+	    (<command>mvn install</command> ou <command>mvn integration-test</command>).</para>
           </listitem>
         </varlistentry>
 
@@ -559,7 +549,7 @@ The goal is automatically performed when running through the integration-test li
           <term>android:dex</term>
 
           <listitem>
-            <para>The <varname>dex</varname> goal converts compiled Java classes to the Android Dalivk Executable (dex) format.</para>
+            <para>Le goal <varname>dex</varname> convertit les classes Java compilées en en code exécutation Dalivk (format DEX).</para>
           </listitem>
         </varlistentry>
 
@@ -567,10 +557,8 @@ The goal is automatically performed when running through the integration-test li
           <term>android:emulator-start</term>
 
           <listitem>
-            <para>
-
-The <varname>emulator-start</varname> goal starts the Android device emulator. 
-The start up parameters can be configured in the Maven Android Plugin configuration in the pom.xml file
+            <para>Le goal <varname>emulator-start</varname> démarre un émulateur.
+            Les paramètres de démarrage peuvent être configurés dans la balise <varname>configuration</varname> du plugin Maven Android dans le <varname>pom.xml</varname>
             <programlisting>&lt;configuration&gt;
   ...
   &lt;emulator&gt;
