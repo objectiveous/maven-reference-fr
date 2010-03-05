@@ -611,11 +611,9 @@
           <term>android:internal-integration-test</term>
 
           <listitem>
-            <para>
-
-The <varname>internal-integration-test</varname> goal is called automatically when the lifecycle reaches the <varname>integration-test</varname> phase. 
-It determines whether to call the goal instrument in this phase based on the existence of instrumentation test classes in the current project. 
-The goal is internal to the plugin lifecycle and should not be used as separate invocation on the command line.</para>
+            <para>Le goal <varname>internal-integration-test</varname> est appelé automatiquement lorsque la phase <varname>integration-test</varname> du cycle de vie est exécutée.
+	    Il détermine s'il faut appeler le goal <varname> instrument</varname> durant cette phase en se basant sur l'existence de classes de tests d'instrumentation dans le projet courant.
+	    Ce goal est interne au cycle de vie du plugin. Il ne doit pas être utilisé seul à partir de la ligne de commande.</para> 
           </listitem>
         </varlistentry>
 
@@ -623,12 +621,9 @@ The goal is internal to the plugin lifecycle and should not be used as separate 
           <term>android:internal-pre-integration-test</term>
 
           <listitem>
-            <para>
-
-The <varname>internal-pre-integration-test</varname> goal is called automatically when the lifecycle reaches <varname>pre-integration-test</varname> phase. 
-It determines whether to call the goals <varname>android:deploy-dependencies</varname> and <varname>android:deploy</varname> in this phase 
-and if necessary invokes them. 
-The goal is internal to the plugin lifecycle and should not be used as separate invocation on the command line.</para>
+            <para>Le goal <varname>internal-pre-integration-test</varname> est appelé automatiquement lorsque la phase <varname>pre-integration-test</varname> du cycle de vie est exécutée.
+	    Il détermine s'il faut appeler les goals <varname>android:deploy-dependencies</varname> et <varname>android:deploy</varname> de cette phase.
+	    Ce goal est interne au cycle de vie du plugin. Il ne doit pas être utilisé seul à partir de la ligne de commande.</para> 
           </listitem>
         </varlistentry>
 
@@ -636,7 +631,7 @@ The goal is internal to the plugin lifecycle and should not be used as separate 
           <term>android:pull</term>
 
           <listitem>
-            <para>The pull goal can be used to copy files or directories from the device.</para>
+            <para>Le goal <varname>pull</varname> peut être utilisé pour copier des fichiers ou des répertoires à partir d'un téléphone ou d'un émulateur connecté.</para>
           </listitem>
         </varlistentry>
 
@@ -644,7 +639,7 @@ The goal is internal to the plugin lifecycle and should not be used as separate 
           <term>android:push</term>
 
           <listitem>
-            <para>The pull goal can be used to copy files or directories to the device.</para>
+            <para>Le goal <varname>push</varname> peut être utilisé pour copier des fichiers ou des répertoires sur un téléphone ou un émulateur connecté.</para>
           </listitem>
         </varlistentry>
 
@@ -652,7 +647,7 @@ The goal is internal to the plugin lifecycle and should not be used as separate 
           <term>android:undeploy</term>
 
           <listitem>
-            <para>The undeploy goal removes the apk of the current project, or another specified apk, from the connected device.</para>
+            <para>Le goal <varname>undeploy</varname> supprime un APK d'un téléphone ou d'un émulateur connecté.</para>
           </listitem>
         </varlistentry>
       </variablelist>
