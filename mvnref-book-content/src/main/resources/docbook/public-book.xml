@@ -81,19 +81,31 @@
       </author>
     </authorgroup>
 
-    <authorgroup role="Traducteurs">
+  <authorgroup role="Traducteurs">
+
       <author>
         <firstname>Emmanuel</firstname>
 
         <surname>Hugonnet</surname>
+
+        <affiliation>
+          <orgname>Silverpeas</orgname>
+        </affiliation>
       </author>
 
       <author>
         <firstname>Erwan</firstname>
 
         <surname>Alliaume</surname>
+
+        <affiliation>
+          <orgname>Xebia IT Architects</orgname>
+        </affiliation>
       </author>
+
+
     </authorgroup>
+
 
     <abstract role="description-short">
       <para>Maven: The Complete Reference is a book about Apache Maven.</para>
