@@ -286,7 +286,7 @@
         <para>Les tests d'instrumentation sont des tests d'intégration packagés dans une application qui est lancée dans un émulateur ou un téléphone
 	et qui interagit avec une autre application pour tester son comportement.
 	La configuration standard pour exécuter les ces tests d'instrumentation est d'avoir deux projets distincts :
-	l'un pour l'application, l'autre pour les tests d'intrumentation.
+	l'un pour l'application, l'autre pour les tests d'instrumentation.
 	Ces modules sont liés par l'intermédiaire des balises <varname>module</varname> du pom parent.</para>
 
         <para>Le code du Maven Android Plugin Samples contient deux exemples de projets configurés de cette manière.
@@ -527,7 +527,7 @@
           <term>android:deploy</term>
 
           <listitem>
-            <para>Le goal <varname>deploy</varname lance le déploiement d'un fichier APK vers un émulateur ou un téléphone connecté.
+            <para>Le goal <varname>deploy</varname> lance le déploiement d'un fichier APK vers un émulateur ou un téléphone connecté.
 	    Ce goal est automatiquement lancé lors de l'exécution de la phase <varname>integration-test</varname> lorsqu'un projet contient des tests d'instrumentation
 	    (<command>mvn install</command> ou <command>mvn integration-test</command>).</para>
           </listitem>
