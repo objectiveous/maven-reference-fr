@@ -567,8 +567,8 @@
     &lt;options&gt;-no-skin&lt;/options&gt;
   &lt;/emulator&gt;
   ...
-&lt;/configuration&gt;               </programlisting> or via command line
-            parameters outside an actual project. <programlisting>mvn android:emulator-start \
+&lt;/configuration&gt;               </programlisting> ou par l'intermédiaire de la ligne de commande à l'extérieur du projet. 
+<programlisting>mvn android:emulator-start \
     -Dandroid.emulator.avd=Default \
     -Dandroid.emulator.options=-no-skin \
     -Dandroid.emulator.wait=10000              </programlisting></para>
@@ -579,9 +579,7 @@
           <term>android:emulator-stop</term>
 
           <listitem>
-            <para>
-
-The <varname>emulator-stops</varname> stops the Android device emulator and can be used inside or outside a Maven project folder.</para>
+            <para>Le goal <varname>emulator-stops</varname> arrête un émulateur Android. Il peut être utilisé dans n'importe quel dossier.</para>
           </listitem>
         </varlistentry>
 
@@ -589,15 +587,14 @@ The <varname>emulator-stops</varname> stops the Android device emulator and can 
           <term>android:generate-sources</term>
 
           <listitem>
-            <para>
-The <varname>generate-sources</varname> goal generates <varname>R.java</varname> based on the resources specified by the resources configuration parameter. 
-It generates Java files based on aidl files.</para>
+            <para>Le goal <varname>generate-sources</varname> génère le fichier <varname>R.java</varname> en fonction des ressources spécifiées 
+	    dans le paramètre <varname>resources</varname> de la configuration.
+	    Il génère les fichiers Java en fonction des fichiers aidl.</para>
 
-            <para>
-
-If the configuration parameter <varname>deleteConflictingFiles</varname> is true (which it is by default), 
-this goal has also deletes any R.java files found in the  source directory, deletes any .java files with the same name as an
-.aidl file found in the source directory and deletes any Thumbs.db files found in the resource directory.</para>
+            <para>Si le paramètre de configuration <varname>deleteConflictingFiles</varname> est à <varname>true</varname> (valeur par défaut), 
+            ce goal supprime n'importe quel fichier <varname>R.java</varname> qu'il trouve dans le répertoire source, 
+	    supprime n'importe quel fichier .java lorsqu'un fichier .aidl du même nom existe,
+	    et supprime les fichiers <varname>Thumbs.db</varname> trouvés dans le répertoire contenant les ressources.</para>
           </listitem>
         </varlistentry>
 
