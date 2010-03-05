@@ -361,31 +361,26 @@
         </varlistentry>
       </variablelist>
 
-      <para>
-
-Together with the use of other module to separate items it is possible to set up a multi module build 
-for an Android application as well as a server side web application sharing 
-e.g. the code for the core objects and business logic.</para>
+      <para>Il est possible de construire ces différents modules en même temps par l'intermédiaire d'un build multimodule.
+      Cela permet, par exemple, de partager du code entre une application Android et une application Web comme des objets du modèle ou de la logique business.</para> 
     </section>
 
     <section id="android-dev-sect-dependencies">
-      <title>Using external dependencies</title>
+      <title>Utilisation de dépendances externess</title>
 
-      <para>
+      <para>Lorsque vous utilisez le plugin Maven Android, trois types de dépendances sont pris en compte.</para>
 
 When using the Maven Android plugin there are three types of dependencies that are treated differently.</para>
 
       <variablelist>
         <varlistentry>
-          <term>Regular dependencies to other Java libraries</term>
+          <term>Dépendances vers d'autres bibliothèques Java libraries</term>
 
           <listitem>
-            <para>
-
-The Java byte code files (.class) of library dependencies as denoted in the normal Maven way 
-are transformed to dalvik executable format like any source code of the current project and included in the Android package. 
-All other files are included as contained in the source library. An example would look like this
-            <programlisting>&lt;dependency&gt;
+            <para>Les fichiers contenant le byte code Java (.class) des dépendances des bibliothèques sont transformés en code exécutable Dalvik comme tout autre code source du projet courant, 
+	    ils sont ensuite inclus dans le package Android.
+	    Tous les autres fichiers sont inclus en tant que ressource dans la bibliothèque source.
+            Voici un morceau d'exemple : <programlisting>&lt;dependency&gt;
   &lt;groupId&gt;com.simpligility&lt;/groupId&gt;
   &lt;artifactId&gt;model&lt;/artifactId&gt;
   &lt;version&gt;0.1&lt;/version&gt;
@@ -395,14 +390,12 @@ All other files are included as contained in the source library. An example woul
         </varlistentry>
 
         <varlistentry>
-          <term>Dependencies to other Android projects</term>
+          <term>Dépendances vers d'autres projets Android</term>
 
           <listitem>
-            <para>
-
-Other Maven Android projects with packaging type apk declared as dependencies are deployed to the emulator 
-prior to running the instrumentation tests in the integration test phase.
-            <programlisting>&lt;dependency&gt;
+            <para>Tout autre projet Android avec un type de packaging APK déclaré comme dépendance d'un projet Android est déployé dans l'émulateur 
+            avant l'exécution des tests d'instrumentation durant la phase des tests d'intégration.
+	    <programlisting>&lt;dependency&gt;
   &lt;groupId&gt;com.simpligility.android&lt;/groupId&gt;
   &lt;artifactId&gt;intents&lt;/artifactId&gt;
   &lt;version&gt;0.1&lt;/version&gt;
@@ -413,19 +406,17 @@ prior to running the instrumentation tests in the integration test phase.
         </varlistentry>
 
         <varlistentry>
-          <term>Dependencies to other Android projects sources</term>
+          <term>Dépendances vers d'autres sources de projets Android</term>
 
           <listitem>
-            <para>
-
-Other Maven Android projects with packaging type apk declared as source dependencies are pulled into the current
-Android application with assets and resources and used to build an application combining all artifacts.. <programlisting>&lt;dependency&gt;
+            <para>Tout autre projet Android avec un type de packaging APK déclaré comme dépendance de source est poussé dans l'application courante avec leurs assets et ressources.
+	    Tout ce contenu sera ensuite utilisé pour construire une application combinant tous ces artefacts.<programlisting>&lt;dependency&gt;
   &lt;groupId&gt;com.simpligility.android&lt;/groupId&gt;
   &lt;artifactId&gt;tools&lt;/artifactId&gt;
   &lt;version&gt;0.1&lt;/version&gt;
   &lt;type&gt;apksources&lt;/type&gt;
 &lt;/dependency&gt;
-</programlisting> More details can be found at
+</programlisting> Pour plus de détail sur cette solution, consultez l'adresse suivante :
             <uri>http://code.google.com/p/maven-android-plugin/wiki/ApkSourcesDependency</uri>.</para>
           </listitem>
         </varlistentry>
