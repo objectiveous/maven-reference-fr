@@ -304,18 +304,16 @@
     </section>
 
     <section id="android-dev-sect-maps">
-      <title>Using Add Ons like the Google Maps Extension</title>
+      <title>Utilisez des Add Ons tel que l'extension Google Maps</title>
 
-      <para>
-
-For many applications the normal Android SDK artifact (android.jar) will be sufficient, 
-however some applications require add-ons. 
-One of the more commonly used add-ons is the Google Maps add-on which provides access to the Google Maps API. 
-The Maps add-on is deployed to your Maven repository by the Maven Android SDK Deployer tool. 
-In order to access the API in your application you need to add a dependency to the add-on to your pom.xml like this:</para>
-
+      <para>Pour la majorité des applications, l'artefact du SDK (android.jar) suffit,
+      il arrive pourtant que certaines applications nécessitent des Add Ons.
+      L'un des Add-Ons les plus connus est celui de Google Maps, celui-ci permet l'accès à l'API Google Maps.
+      Cet Ad-On a été déployé dans votre dépôt Maven par l'outil Maven Android SDK Deployer.
+      Afin de pouvoir utiliser cette API, vous avez besoin d'ajouter une dépendance à votre application, pour cela modifiez le <varname>pom.xml</varname> de la manière suivante :</para>
+	    
       <example>
-        <title>The dependency to the Google Maps API</title>
+        <title>La dépendance vers l'API Google Maps</title>
 
         <programlisting>&lt;dependency&gt;
   &lt;groupId&gt;com.google.android.maps&lt;/groupId&gt;
@@ -325,10 +323,10 @@ In order to access the API in your application you need to add a dependency to t
 &lt;/dependency&gt;      </programlisting>
       </example>
 
-      <para>The valid versions currently are <varname>3_r3</varname>,
+      <para>Les versions suivantes sont pour le moment disponibles  <varname>3_r3</varname>,
       <varname>4_r2</varname>, <varname>5_r1</varname>,
       <varname>6_r1</varname> and <varname>7_r1</varname>. 
-Simply browse the android folder of your maven repository/repository server to see what the versions are.</para>
+      Naviguez simplement dans le dossier android de dépôt pour consulter la liste des versions qui vous est disponible.</para>
     </section>
 
     <section id="android-dev-sect-multimodule">
