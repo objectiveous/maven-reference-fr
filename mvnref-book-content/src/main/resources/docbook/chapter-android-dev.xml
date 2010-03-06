@@ -15,7 +15,7 @@
 
     <para>Dans la plupart des cas, le développement d'applications Android s'effectue dans Eclipse avec l'Android Development Toolkit (<acronym>ADT</acronym>).
     Il vous est également possible de construire vos applications en dehors de cet IDE en utilisant par l'intermédiaire d'Apache Ant.
-    Le pluging Maven Android a été créé pour permettre aux équipes de développement de construire, déployer et la publier des applications Android avec Apache Maven, 
+    Le plugin Maven Android a été créé pour permettre aux équipes de développement de construire, déployer et la publier des applications Android avec Apache Maven, 
     permettant ainsi de tirer parti des fonctionnalités disponibles comme la gestion des dépendances, le reporting ou l'analyse de code…</para>
   </section>
 
