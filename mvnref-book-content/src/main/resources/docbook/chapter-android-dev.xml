@@ -311,7 +311,7 @@ e?xml version="1.0" encoding="UTF-8"?>
       <para>Pour la majorité des applications, l'artefact du SDK (android.jar) suffit,
       il arrive pourtant que certaines applications nécessitent des Add Ons.
       L'un des Add-Ons les plus connus est celui de Google Maps, celui-ci permet l'accès à l'API Google Maps.
-      Cet Ad-On a été déployé dans votre dépôt Maven par l'outil Maven Android SDK Deployer.
+      Cet Add-On a été déployé dans votre dépôt Maven par l'outil Maven Android SDK Deployer.
       Afin de pouvoir utiliser cette API, vous avez besoin d'ajouter une dépendance à votre application, pour cela modifiez le <varname>pom.xml</varname> de la manière suivante :</para>
 	    
       <example>
