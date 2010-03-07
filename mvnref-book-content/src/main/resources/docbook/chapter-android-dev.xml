@@ -79,7 +79,8 @@
         <title>Installation dans votre dépôt local</title>
 
         <para>Pour installer les JARs d'API de différentes versions de plates-formes dans votre dépôt local, 
-        vous pouvez exécuter la commande  suivante à partir du dossier de votre deployer : <programlisting>mvn clean install</programlisting>.
+        vous pouvez exécuter la commande  suivante à partir du dossier de votre deployer : 
+	<programlisting>mvn clean install</programlisting>
 	Par défaut, cette commande installe les JARs <varname>android.jar</varname> et <varname>mas.jar</varname> dans votre dépôt local.
 	Vous devriez donc trouver ces fichiers tout juste installés dans les groupes <varname>android</varname> et <varname>com.google.android.maps</varname> 
         dans le répertoire <filename>~/.m2/repository</filename>.</para>
