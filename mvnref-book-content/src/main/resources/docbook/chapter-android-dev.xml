@@ -364,7 +364,7 @@ e?xml version="1.0" encoding="UTF-8"?>
       </variablelist>
 
       <para>Il est possible de construire ces différents modules en même temps par l'intermédiaire d'un build multimodule.
-      Cela permet, par exemple, de partager du code entre une application Android et une application Web comme des objets du modèle ou de la logique business.</para> 
+      Cela permet, par exemple, de partager du code entre une application Android et une application Web des objets du modèle ou de la logique business.</para> 
     </section>
 
     <section id="android-dev-sect-dependencies">
