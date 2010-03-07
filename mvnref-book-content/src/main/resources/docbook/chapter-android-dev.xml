@@ -87,7 +87,7 @@
       </section>
 
       <section id="android-dev-sect-repository-install-remote">
-        <title>Installation dans urn depot distant</title>
+        <title>Installation dans un dépôt distant</title>
 
         <para>Le mécanisme précédent fonctionne très bien pour une seule machine, mais si vous devez fournir ces artefacts à une équipe de développeurs,
         vous voudrez probablement déployer ces mêmes artefacts sur un dépôt distant accessible par l'ensemble des utilisateurs.
