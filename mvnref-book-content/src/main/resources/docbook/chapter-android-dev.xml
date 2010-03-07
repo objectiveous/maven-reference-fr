@@ -254,7 +254,8 @@
       
 
       <para>Pour construire l'application et l'exécuter sur un émulateur déjà lancé, vous pouvez utiliser la commande 
-      <programlisting>mvn clean install android:deploy</programlisting>.<!--TODO potentially add commandline output for build here-->
+      <programlisting>mvn clean install android:deploy</programlisting>
+      <!--TODO potentially add commandline output for build here-->
       Le code de l'application d'exemple est disponible dans les <varname>maven-android-plugin-samples</varname> à cette adresse :
       <uri>http://code.google.com/p/maven-android-plugin/wiki/Samples</uri>.</para>
     </section>
