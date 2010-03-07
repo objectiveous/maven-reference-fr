@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+e?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <chapter id="android-dev">
@@ -294,7 +294,7 @@
         <para>Le code du Maven Android Plugin Samples contient deux exemples de projets configurés de cette manière.
 	La configuration du plugin Maven Android pour l'application contenant les tests d'instrumentation 
 	est la même que pour celle de l'application principale avec une seule différence : l'ajout d'une dépendance vers l'application principale.
-	Il est important d'ajouter le <varname>type</varname> de l'<varname>apk</varname> sur cette dépendance pour permettre au plugin Maven Android de trouver le package de l'application.
+	Il est important d'ajouter le <varname>type</varname> <varname>apk</varname> sur cette dépendance pour permettre au plugin Maven Android de trouver le package de l'application.
         <programlisting>&lt;dependency&gt;
   &lt;groupId&gt;com.simpligility.android&lt;/groupId&gt;
   &lt;artifactId&gt;intents&lt;/artifactId&gt;
