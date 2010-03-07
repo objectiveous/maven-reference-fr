@@ -263,7 +263,7 @@
     <section id="android-dev-sect-test">
       <title>Test du code d'une application Android</title>
 
-      <para>Le test du code d'une application Android peut-être effectué à la manière d'un test unitaire traditionnel <varname>junit</varname> dans le cadre de l'Android SDk,
+      <para>Le test du code d'une application Android peut-être effectué à la manière d'un test unitaire traditionnel <varname>junit</varname> dans le cadre de l'Android SDK,
       mais aussi par l'intermédiaire de tests d'intégration. Ces derniers sont appelés 'instrumentation tests'.</para>
 
       <section id="android-dev-sect-test-unit">
