@@ -21,17 +21,17 @@
     Le pluging Maven Android a été créé pour permettre aux équipes de développement de construire,
     déployer et publier des applications Android avec Apache Maven, permettant ainsi de tirer parti
     des fonctionnalités disponibles comme la gestion des dépendances, les raports ou l'analyse de 
-    code …</para>
+    code, etc.</para>
   </section>
 
   <section id="android-dev-sect-config-build">
-    <title>Configurez un environnement de build pour le développement Android</title>
+    <title>Configurer un environnement pour le développement Android</title>
 
     <para><indexterm>
         <primary>Android</primary>
-
-        <secondary>configurez un environnement de build</secondary>
-      </indexterm>Avant d'essayer de construire vos bibliothèques et vos applications Maven, vous devez effectuer les tâches suivantes :</para>
+        <secondary>configurer un environnement de build</secondary>
+      </indexterm>Avant d'essayer de construire vos bibliothèques et vos applications Maven,
+      vous devez effectuer les tâches suivantes :</para>
 
     <itemizedlist>
       <listitem>
@@ -43,24 +43,31 @@
       </listitem>
 
       <listitem>
-        <para>Configurer Maven pour simplifier l'utilisation du Maven Android Plugin</para>
+        <para>Configuration de Maven pour simplifier l'utilisation du Maven Android Plugin</para>
       </listitem>
     </itemizedlist>
 
     <section id="android-dev-sect-sdk-install">
       <title>Installation du SDK Android</title>
 
-      <para>Le plugin Android Maven nécessite la présence du SDK Android dans votre environnement de développement.
-      La variable d'environnement <varname>ANDROID_HOME</varname> doit être configurée pour pointer vers le répertoire d'installation du SDK Android.
-      Le SDK doit être installé en suivant les consignes du site web Android Developer dont voici l'adresse <uri>http://developer.android.com/sdk/index.html</uri>. 
-      Par exemple, si le sdk est installé dans le répertoire <varname>/opt/android-sdk-linux </varname>, 
-      la commande suivante permet d'initialiser cette variable correctement <programlisting>export ANDROID_HOME=/opt/android-sdk-linux</programlisting> sur un environnement Unix/bash.
-      Sous Windows, utilisez la commande suivante : <programlisting>set ANDROID_HOME=C:\\opt\android-sdk-linux</programlisting></para>
+      <para>Le plugin Android Maven nécessite la présence du SDK Android dans votre environnement 
+      de développement. La variable d'environnement <varname>ANDROID_HOME</varname> doit être
+      configurée pour pointer vers le répertoire d'installation du SDK Android. Le SDK doit être
+      installé en suivant les consignes du site web Android Developer dont voici l'adresse
+      <uri>http://developer.android.com/sdk/index.html</uri>. Par exemple, si le SDK est installé
+      dans le répertoire <varname>/opt/android-sdk-linux</varname>, la commande suivante permet
+      d'initialiser cette variable correctement 
+      <programlisting>export ANDROID_HOME=/opt/android-sdk-linux</programlisting> sur un environnement
+      Unix/bash. Sous Windows, utiliser la commande suivante :
+      <programlisting>set ANDROID_HOME=C:\\opt\android-sdk-linux</programlisting>.</para>
 
-      <para>En plus du SDK, les différentes versions des plates-formes dont vous avez besoin pour le développement doivent également être installées.
-      Les consignes d'installation sont détaillées à cette adresse : <uri>http://developer.android.com/sdk/adding-components.html</uri>. 
-      Vous pouvez installer les versions des plates-formes que vous vous avez besoin, ou, plus simplement, vous contenter d'installer toutes les plates-formes.
-      De plus, vous pouvez également rajouter le répertoire <varname>ANDROID_HOME/tools</varname> à votre <varname>PATH</varname> pour vous faciliter l'utilisation des différents outils fournis par le SDK en ligne de commande.</para> 
+      <para>En plus du SDK, les différentes versions des plates-formes dont vous avez besoin pour le 
+      développement doivent également être installées. Les consignes d'installation sont détaillées
+      à cette adresse : <uri>http://developer.android.com/sdk/adding-components.html</uri>. Vous
+      pouvez installer les versions des plates-formes dont vous avez besoin, ou, plus simplement, 
+      vous contenter d'installer toutes les plates-formes. De plus, vous pouvez également ajouter
+      le répertoire <varname>ANDROID_HOME/tools</varname> à votre <varname>PATH</varname> pour
+      faciliter l'utilisation en ligne de commande des différents outils fournis par le SDK.</para>
     </section>
 
     <section id="android-dev-sect-repository-install">
