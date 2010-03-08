@@ -7,17 +7,21 @@
   <section id="android-dev-sect-intro">
     <title>Introduction</title>
 
-    <para>Android est un téléphone portable et un système d'exploitation embarqué développé par l'Open Handset Alliance. 
-    Il est basé sur un noyau Linux et possède une machine virtuelle utilisant pour la gestion de la mémoire et
-    interprétant du bytecode Java pour produire le code qui sera exécuté.
+    <para>Android est un téléphone portable et un système d'exploitation embarqué développé par 
+    l'Open Handset Alliance. Il se base sur un noyau Linux et possède une machine virtuelle gérant la
+    mémoire du code des applications et interprétant du bytecode Java pour produire le code qui sera exécuté.
     L'environnement de développement est basé sur le langage Java et les outils du JDK et de la JVM.
-    Le bytecode Java produit est transformé en code exécutable Dalvik optimisé pour répondre aux contraintes liées aux enjeux de la mobilité.
-    Java est le langage de programmation par défaut, les différentes API sont basées sur celui-ci.</para>
+    Le bytecode Java produit est transformé en code exécutable Dalvik, optimisé pour répondre aux
+    contraintes liées aux enjeux de la mobilité. Java est le langage de programmation par défaut,
+    les différentes API sont basées sur celui-ci.</para>
 
-    <para>Dans la plupart des cas, le développement d'applications Android s'effectue dans Eclipse avec l'Android Development Toolkit (<acronym>ADT</acronym>).
-    Il vous est également possible de construire vos applications en dehors de cet IDE en utilisant par l'intermédiaire d'Apache Ant.
-    Le pluging Maven Android a été créé pour permettre aux équipes de développement de construire, déployer et la publier des applications Android avec Apache Maven, 
-    permettant ainsi de tirer parti des fonctionnalités disponibles comme la gestion des dépendances, le reporting ou l'analyse de code…</para>
+    <para>Dans la plupart des cas, le développement d'applications Android s'effectue avec 
+    l'Android Development Toolkit (<acronym>ADT</acronym>) dans Eclipse. Il est également
+    possible de construire les applications en dehors de cet IDE en utilisant Apache Ant.
+    Le pluging Maven Android a été créé pour permettre aux équipes de développement de construire,
+    déployer et publier des applications Android avec Apache Maven, permettant ainsi de tirer parti
+    des fonctionnalités disponibles comme la gestion des dépendances, les raports ou l'analyse de 
+    code …</para>
   </section>
 
   <section id="android-dev-sect-config-build">
