@@ -346,7 +346,7 @@
     </section>
 
     <section id="android-dev-sect-maps">
-      <title>Utilisez des Add Ons tel que l'extension Google Maps</title>
+      <title>Utiliser des Add-Ons comme l'extension Google Maps</title>
 
       <para>Pour la majorité des applications, l'artefact du SDK (android.jar) suffit,
       il arrive pourtant que certaines applications nécessitent des Add Ons.
