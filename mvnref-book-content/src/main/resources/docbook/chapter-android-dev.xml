@@ -141,14 +141,17 @@
       </section>
 
       <section id="android-dev-sect-repository-install-parts">
-        <title>Installation dune partie des plates-formes</title>
+        <title>Installation d'une partie des plates-formes</title>
 
-        <para>Par défaut, l'outil Maven Android SDK Deployer est configuré pour installer toutes les versions des artefacts de toutes les plates-formes Android dans un dépôt.
-	Si vous désirez n'installer qu'une partie de ces plateformes, voire une seule, vous pouvez utiliser différentes options par l'intermédiaire de <varname>profile</varname>.
-	Pour cela, vous devez spécifier les versions que vous désirez par l'intermédiaire de leur nom de <varname>profile</varname> correspondant : 
-	<programlisting>mvn install -P 2.1</programlisting>
-	Les noms de profiles actuellement disponibles sont : <varname>1.1</varname>, <varname>1.5</varname>,
-        <varname>1.6</varname>, <varname>2.0</varname> and
+        <para>Par défaut, l'outil Maven Android SDK Deployer est configuré pour installer toutes 
+        les versions des artefacts de l'ensemble des plates-formes Android dans le dépôt. Si vous
+        désirez n'installer qu'une partie de ces plates-formes, voire une seule, vous pouvez 
+        utiliser différentes options par l'intermédiaire de <varname>profile</varname>. Pour cela,
+        vous devez spécifier les versions que vous désirez par l'intermédiaire du nom de
+        <varname>profile</varname> correspondant :
+        <programlisting>mvn install -P 2.1</programlisting>
+        Les noms de profiles actuellement disponibles sont : <varname>1.1</varname>,
+        <varname>1.5</varname>, <varname>1.6</varname>, <varname>2.0</varname> et
         <varname>2.1</varname>.</para>
       </section>
     </section>
