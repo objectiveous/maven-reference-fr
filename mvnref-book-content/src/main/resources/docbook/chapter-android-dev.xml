@@ -18,7 +18,7 @@
     <para>Dans la plupart des cas, le développement d'applications Android s'effectue avec 
     l'Android Development Toolkit (<acronym>ADT</acronym>) dans Eclipse. Il est également
     possible de construire les applications en dehors de cet IDE en utilisant Apache Ant.
-    Le pluging Maven Android a été créé pour permettre aux équipes de développement de construire,
+    Le plugin Maven Android a été créé pour permettre aux équipes de développement de construire,
     déployer et publier des applications Android avec Apache Maven, permettant ainsi de tirer parti
     des fonctionnalités disponibles comme la gestion des dépendances, les raports ou l'analyse de 
     code, etc.</para>
@@ -43,7 +43,7 @@
       </listitem>
 
       <listitem>
-        <para>Configuration de Maven pour simplifier l'utilisation du Maven Android Plugin</para>
+        <para>Configuration de Maven pour simplifier l'utilisation du plugin Maven Android</para>
       </listitem>
     </itemizedlist>
 
@@ -157,13 +157,14 @@
     </section>
 
     <section id="android-dev-sect-plugin-config">
-      <title>Configurer Maven pour qu'il utilise le Maven Android Plugin</title>
+      <title>Configurer Maven pour l'utilisation du plugin Maven Android</title>
 
-      <para>Afin de pouvoir utiliser les goals du Maven Android Plugin à partir de la ligne de commande en utilisant la version courte du nom du plugin <varname>android</varname>,
-      vous devez ajouter l'extrait de configuration suivant dans votre fichier <varname>settings.xml</varname>.</para>
+      <para>Afin de pouvoir appeler les goals du plugin Maven Android via la ligne de commande et
+      en utilisant la version courte du nom du plugin <varname>android</varname>, vous devez
+      ajouter l'extrait de configuration suivant dans votre fichier <varname>settings.xml</varname>.</para>
 
       <example>
-        <title>Extrait du <varname>settings.xml</varname> pour pouvoir utiliser le plugin avec son nom court</title>
+        <title>Extrait du fichier <varname>settings.xml</varname> pour appeler le plugin par son nom court</title>
 
         <programlisting>&lt;pluginGroups&gt;
    &lt;pluginGroup&gt;
@@ -175,7 +176,7 @@
   </section>
 
   <section id="android-dev-sect-using">
-    <title>Développement d'applications Android avec le Maven Android Plugin</title>
+    <title>Développement d'applications Android avec le plugin Maven Android</title>
 
     <section id="android-dev-sect-helloandroidexample">
       <title>Exemple HelloFlashlight</title>
