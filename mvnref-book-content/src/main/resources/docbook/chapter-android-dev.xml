@@ -277,54 +277,64 @@
       <varname>2.0.1_r1</varname> et <varname>2.1_r1</varname>.
       Naviguez simplement dans votre dépôt pour connaître la liste exacte de ces versions.</para>
 
-      <para>La configuration du plugin Maven Compiler dans le <varname>build</varname> est nécessaire 
-      car Android utilise les fonctionnalités de Java 5 telles que les annotations ou les boucles simplifiées.
-      La configuration principale du plugin Maven Android est également effectuée dans cette section <varname>build</varname>.
-      Dans la majorité des cas, peu de configuration est nécessaire.</para>
+      <para>La configuration du plugin Maven Compiler dans la balise <sgmltag>build</sgmltag> est 
+      nécessaire car Android utilise les fonctionnalités de Java 5 comme les annotations ou les
+      boucles simplifiées. La configuration principale du plugin Maven Android est également
+      effectuée dans la section <sgmltag>build</sgmltag> du fichier <filename>pom.xml</filename>,
+      mais dans la plupart des cas, très peu de configuration est nécessaire.</para>
       
 
-      <para>Pour construire l'application et l'exécuter sur un émulateur déjà lancé, vous pouvez utiliser la commande 
-      <programlisting>mvn clean install android:deploy</programlisting>
+      <para>Pour construire l'application et l'exécuter dans un émulateur déjà lancé, vous pouvez
+      utiliser la commande <programlisting>mvn clean install android:deploy</programlisting>
       <!--TODO potentially add commandline output for build here-->
-      Le code de l'application d'exemple est disponible dans les <varname>maven-android-plugin-samples</varname> à cette adresse :
+      Le code de l'application d'exemple est disponible dans les 
+      <varname>maven-android-plugin-samples</varname> que vous trouverez à cette adresse :
       <uri>http://code.google.com/p/maven-android-plugin/wiki/Samples</uri>.</para>
     </section>
 
     <section id="android-dev-sect-test">
-      <title>Test du code d'une application Android</title>
+      <title>Tester le code d'une application Android</title>
 
-      <para>Le test du code d'une application Android peut-être effectué à la manière d'un test unitaire traditionnel <varname>junit</varname> dans le cadre de l'Android SDK,
-      mais aussi par l'intermédiaire de tests d'intégration. Ces derniers sont appelés 'instrumentation tests'.</para>
+      <para>Tester une application Android peut se faire sous la forme de tests unitaires
+      traditionnels, en profitant de l'excellent support de <varname>junit</varname> par l'Android
+      SDK, mais aussi par l'intermédiaire de tests d'intégration que l'on appelle
+      <varname>tests d'instrumentation</varname>.</para>
 
       <section id="android-dev-sect-test-unit">
         <title>Tests unitaires</title>
 
-        <para>Le plugin Android Maven lance l'exécution des tests unitaires à la manière du plugin Surefire.
-        Comme le chemin par défaut des classes de tests dans Eclipse et dans l'Android Development Toolkit est <varname>test</varname>,
-	Maven doit être configuré spécifiquement pour qu'il puisse accéder à ce code. <example>
-            <title>Ajout d'un dossier <varname>test</varname> dans la configuration <varname>build</varname></title>
+        <para>Le plugin Android Maven exécute les tests unitaires à la manière du plugin Surefire.
+        Comme le chemin par défaut des classes de tests dans Eclipse, et donc par conséquence dans
+        l'Android Development Toolkit, est <filename>test</filename>, Maven doit être configuré
+        spécifiquement pour prendre ce code en compte lors du build. <example>
+            <title>Ajout du dossier <filename>test</filename> dans la section <sgmltag>build</sgmltag></title>
 
             <programlisting>&lt;build&gt;
   &lt;testSourceDirectory&gt;test&lt;/testSourceDirectory&gt;
   ...          </programlisting>
-          </example>
-	D'une autre manière, il vous est également possible de suivre les conventions Maven et de déplacer le code de votre application et de vos tests dans les répertoires
-	<varname>src/main/java</varname> et <varname>src/test/java</varname> et de réconfigurer Eclipse pour qu'il suive ce pattern.</para>
+        </example>
+        Cependant, vous pouvez respecter les conventions Maven et déplacer le code de votre application
+        et de vos tests dans les répertoires <filename>src/main/java</filename> et
+        <filename>src/test/java</filename> et réconfigurer Eclipse pour qu'il suive ce
+        formalisme.</para>
       </section>
 
       <section id="android-dev-sect-test-instrumentation">
-        <title>Test d'instrumentation</title>
+        <title>Tests d'instrumentation</title>
 
-        <para>Les tests d'instrumentation sont des tests d'intégration packagés dans une application qui est lancée dans un émulateur ou un téléphone
-	et qui interagit avec une autre application pour tester son comportement.
-	La configuration standard pour exécuter les ces tests d'instrumentation est d'avoir deux projets distincts :
-	l'un pour l'application, l'autre pour les tests d'instrumentation.
-	Ces modules sont liés par l'intermédiaire des balises <varname>module</varname> du pom parent.</para>
+        <para>Les tests d'instrumentation sont des tests d'intégration packagés dans une application 
+        qui est lancée dans un émulateur ou un téléphone et qui interagit l'application dont on veut
+        tester le comportement.	La configuration standard pour exécuter les tests d'instrumentation 
+        est d'avoir deux projets distincts : un pour l'application, et un autre pour les tests 
+        d'instrumentation. Ces modules sont liés par l'intermédiaire des balises
+        <sgmltag>module</sgmltag> du POM parent.</para>
 
-        <para>Le code du Maven Android Plugin Samples contient deux exemples de projets configurés de cette manière.
-	La configuration du plugin Maven Android pour l'application contenant les tests d'instrumentation 
-	est la même que pour celle de l'application principale avec une seule différence : l'ajout d'une dépendance vers l'application principale.
-	Il est important d'ajouter le <varname>type</varname> <varname>apk</varname> sur cette dépendance pour permettre au plugin Maven Android de trouver le package de l'application.
+        <para>Le code du Maven Android Plugin Samples contient deux exemples de projets configurés 
+        de cette manière. La configuration du plugin Maven Android pour l'application contenant
+        les tests d'instrumentation est la même que celle de l'application principale à une
+        différence près : l'ajout d'une dépendance vers l'application principale. Il est important
+        d'ajouter le <sgmltag>type</sgmltag> <varname>apk</varname> sur cette dépendance pour
+        permettre au plugin Maven Android de trouver le package Android de l'application.
         <programlisting>&lt;dependency&gt;
   &lt;groupId&gt;com.simpligility.android&lt;/groupId&gt;
   &lt;artifactId&gt;intents&lt;/artifactId&gt;
