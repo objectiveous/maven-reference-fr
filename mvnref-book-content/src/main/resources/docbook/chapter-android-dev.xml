@@ -150,7 +150,7 @@
         vous devez spécifier les versions que vous désirez par l'intermédiaire du nom de
         <varname>profile</varname> correspondant :
         <programlisting>mvn install -P 2.1</programlisting>
-        Les noms de profiles actuellement disponibles sont : <varname>1.1</varname>,
+        Les noms des profils actuellement disponibles sont : <varname>1.1</varname>,
         <varname>1.5</varname>, <varname>1.6</varname>, <varname>2.0</varname> et
         <varname>2.1</varname>.</para>
       </section>
@@ -366,14 +366,14 @@
 &lt;/dependency&gt;      </programlisting>
       </example>
 
-      <para>Les versions suivantes sont pour le moment disponibles  <varname>3_r3</varname>,
-      <varname>4_r2</varname>, <varname>5_r1</varname>,
-      <varname>6_r1</varname> and <varname>7_r1</varname>. 
-      Naviguez simplement dans le dossier android de dépôt pour consulter la liste des versions qui vous est disponible.</para>
+      <para>Les versions suivantes sont pour le moment disponibles <varname>3_r3</varname>,
+      <varname>4_r2</varname>, <varname>5_r1</varname>, <varname>6_r1</varname> et <varname>7_r1</varname>.
+      Naviguez simplement dans le dossier android de dépôt pour consulter la liste des versions 
+      disponibles.</para>
     </section>
 
     <section id="android-dev-sect-multimodule">
-      <title>Projets Maven Android multi projets</title>
+      <title>Projets Maven Android multimodules</title>
 
       <para>Le plugin Maven Android peut être utilisé pour configurer un projet multimodule, comme par exemple ici, 3 modules liés à un même parent.</para>
 
