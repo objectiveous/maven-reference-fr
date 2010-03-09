@@ -349,10 +349,11 @@
       <title>Utiliser des Add Ons comme l'extension Google Maps</title>
 
       <para>Pour la majorité des applications, l'artefact du SDK (<filename>android.jar</filename>)
-      suffit, il arrive pourtant que certaines applications nécessitent des Add Ons.
-      L'un des Add-Ons les plus connus est celui de Google Maps, celui-ci permet l'accès à l'API Google Maps.
-      Cet Add-On a été déployé dans votre dépôt Maven par l'outil Maven Android SDK Deployer.
-      Afin de pouvoir utiliser cette API, vous avez besoin d'ajouter une dépendance à votre application, pour cela modifiez le <varname>pom.xml</varname> de la manière suivante :</para>
+      suffit, il arrive pourtant que certaines applications nécessitent des add-ons. L'un des add-ons
+      les plus connus est celui de Google Maps, celui-ci permet l'accès à l'API Google Maps.
+      Cet add-on a été déployé dans votre dépôt Maven par l'outil Maven Android SDK Deployer.
+      Afin de pouvoir utiliser cette API, vous avez besoin d'ajouter une dépendance à votre 
+      application, pour cela modifiez le fichier <filename>pom.xml</filename> de la manière suivante :</para>
 	    
       <example>
         <title>La dépendance vers l'API Google Maps</title>
