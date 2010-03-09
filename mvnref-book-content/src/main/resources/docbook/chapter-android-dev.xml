@@ -254,7 +254,7 @@
           </listitem>
 
           <listitem>
-            <para>la dépendance vers le jar de la plate-forme Android cible</para>
+            <para>la dépendance vers le jar de la plateforme Android cible</para>
           </listitem>
 
           <listitem>
@@ -267,11 +267,11 @@
       cycle de vie spécifique à Android. Il gère tous les appels aux outils du SDK Android pour
       traiter les ressources, convertir le bytecode Java, etc.</para>
 
-      <para>La dépendance vers le JAR de la plate-forme doit utiliser la version de la cible telle 
+      <para>La dépendance vers le JAR de la plateforme doit utiliser la version de la cible telle
       qu'elle a été publiée dans le dépôt Maven par l'Android SDK Deployer. Il récupère les
       versions à partir des valeurs <varname>Platform.Version</varname> et <varname>Pkg.Revision</varname>
       renseignées dans le fichier de propriétés <varname>source.properties</varname> qui se trouve 
-      dans le dossier de la plate-forme du SDK Android.  Les valeurs possibles sont à ce jour :
+      dans le dossier de la plateforme du SDK Android.  Les valeurs possibles sont à ce jour :
       <varname>1.1_r1</varname>, <varname>1.5_r3</varname>,
       <varname>1.6_r2</varname>, <varname>2.0_r1</varname>,
       <varname>2.0.1_r1</varname> et <varname>2.1_r1</varname>.
@@ -375,14 +375,16 @@
     <section id="android-dev-sect-multimodule">
       <title>Projets Maven Android multimodules</title>
 
-      <para>Le plugin Maven Android peut être utilisé pour configurer un projet multimodule, comme par exemple ici, 3 modules liés à un même parent.</para>
+      <para>Le plugin Maven Android peut être utilisé pour configurer un projet multimodule,
+      comme par exemple ici, 3 modules liés à un même parent.</para>
 
       <variablelist>
         <varlistentry>
           <term>Bibliothèque de code Java</term>
 
           <listitem>
-            <para>Ce premier module contient la logique business implémentée en Java, ou tout autre langage tournant sur la JVM, dans un jar.</para>
+            <para>Ce premier module contient dans un jar la logique métier écrite en Java, ou tout autre langage
+            s'exécutant sur la <acronym>JVM</acronym>.</para>
           </listitem>
         </varlistentry>
 
@@ -390,8 +392,9 @@
           <term>Code de l'application Android</term>
 
           <listitem>
-            <para>Ce second module dépend du premier, il contient le code dépendant de la plateforme Android. 
-	    Ce module doit être du type <varname>APK</varname> et avoir configuré le plugin Android.</para>
+            <para>Ce second module dépend du premier, il contient le code dépendant de la
+            plateforme Android. Ce module doit être de <sgmltag>type</sgmltag> <varname>APK</varname>
+            et avoir configuré le plugin Android.</para>
           </listitem>
         </varlistentry>
 
@@ -399,13 +402,15 @@
           <term>Tests d'instrumentation</term>
 
           <listitem>
-            <para>Ce troisième module dépend du second module, il implémente les différents tests d'intégration de l'application.</para>
+            <para>Ce troisième module dépend du second module, il contient les différents tests
+            d'intégration de l'application.</para>
           </listitem>
         </varlistentry>
       </variablelist>
 
-      <para>Il est possible de construire ces différents modules en même temps par l'intermédiaire d'un build multimodule.
-      Cela permet, par exemple, de partager du code entre une application Android et une application Web des objets du modèle ou de la logique business.</para> 
+      <para>Il est possible de construire ces différents modules en même temps par l'intermédiaire 
+      d'un build multimodule. Cela permet, par exemple, de partager le code contenant les objets du
+      modèle ou la logique métier entre entre une application Android et une application Web.</para>
     </section>
 
     <section id="android-dev-sect-dependencies">
