@@ -416,17 +416,20 @@
     <section id="android-dev-sect-dependencies">
       <title>Utiliser des dépendances externes</title>
 
-      <para>Lorsque vous utilisez le plugin Maven Android, trois types de dépendances sont pris en compte.</para>
+      <para>Lorsque vous utilisez le plugin Maven Android, trois types de dépendances sont pris
+      en compte.</para>
 
       <variablelist>
         <varlistentry>
-          <term>Dépendances vers d'autres bibliothèques Java libraries</term>
+          <term>Les dépendances vers d'autres bibliothèques Java</term>
 
           <listitem>
-            <para>Les fichiers contenant le byte code Java (.class) des dépendances des bibliothèques sont transformés en code exécutable Dalvik comme tout autre code source du projet courant, 
-	    ils sont ensuite inclus dans le package Android.
-	    Tous les autres fichiers sont inclus en tant que ressource dans la bibliothèque source.
-            Voici un morceau d'exemple : <programlisting>&lt;dependency&gt;
+            <para>Les fichiers contenant le bytecode Java (.class) des dépendances des bibliothèques
+            sont transformés en code exécutable Dalvik comme n'importe quel code source du projet,
+            ils sont ensuite inclus dans le package Android. Tous les autres fichiers sont inclus
+            en tant que ressource dans la bibliothèque source.
+            Voici, un extrait présentant un exemple de dépendance vers une bibliothèque extérieure :
+            <programlisting>&lt;dependency&gt;
   &lt;groupId&gt;com.simpligility&lt;/groupId&gt;
   &lt;artifactId&gt;model&lt;/artifactId&gt;
   &lt;version&gt;0.1&lt;/version&gt;
