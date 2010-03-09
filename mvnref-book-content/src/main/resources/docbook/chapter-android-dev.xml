@@ -181,15 +181,18 @@
     <section id="android-dev-sect-helloandroidexample">
       <title>Exemple HelloFlashlight</title>
 
-      <para>L'exemple HelloFlashlight va nous servir de point de départ pour présenter le plugin Maven Android Plugin.
-      Vous pouvez suivre ces mêmes étapes pour sur applications Android pour qu'elles utilisent le Maven Android Plugin comme outil de build.
-      Une fois que votre environnement est correctement configuré (tel que nous venons de le décrire dans les paragraphes précédents),
-      créez un nouveau projet Android en utilisant les Android Development Tools (ADT) <uri>http://developer.android.com/sdk/eclipse-adt.html</uri>.</para>
+      <para>L'exemple HelloFlashlight va nous servir de point de départ pour présenter le
+      plugin Maven Android. Vous pouvez suivre les mêmes étapes pour utiliser le plugin Maven
+      Android Plugin afin de construire vos applications Android. Une fois que votre environnement
+      est correctement configuré (tel que nous venons de le décrire dans les paragraphes précédents),
+      créez un nouveau projet Android en utilisant les Android Development Tools
+      (<acronym>ADT</acronym>) <uri>http://developer.android.com/sdk/eclipse-adt.html</uri>.</para>
 
-      <para>Pour activer le build Maven d'un tel projet, ajoutez le <varname>pom.xml</varname> ci-dessous dans le dossier principal de votre projet :</para>  
+      <para>Pour activer le build Maven d'un tel projet, ajoutez le fichier <filename>pom.xml</filename>
+      ci-dessous dans le dossier principal de votre projet :</para>
 
       <example>
-        <title><varname>pom.xml</varname> du projet HelloFlashlight</title>
+        <title>Fichier <filename>pom.xml</filename> du projet HelloFlashlight</title>
 
         <programlisting>  &lt;?xml version="1.0" encoding="UTF-8"?&gt;
   &lt;project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -244,31 +247,34 @@
         </programlisting>
       </example>
 
-      <para>Veuillez noter les points suivants dans ce <varname>pom.xml</varname> : <itemizedlist>
+      <para>Veuillez noter les points suivants dans ce fichier <filename>pom.xml</filename> :
+      <itemizedlist>
           <listitem>
-            <para>Le type de <varname>packaging</varname> est
-            <varname>apk</varname></para>
+            <para>Le type de <varname>packaging</varname> est <varname>apk</varname></para>
           </listitem>
 
           <listitem>
-            <para>la dépendance vers le jar de la plate-forme</para>
+            <para>la dépendance vers le jar de la plate-forme Android cible</para>
           </listitem>
 
           <listitem>
-            <para>la configuration du <varname>build</varname> avec les plugins Maven Android Plugin
-            et Compiler Plugin</para>
+            <para>la configuration du <varname>build</varname> avec les plugins Maven Android 
+            et Compiler</para>
           </listitem>
         </itemizedlist></para>
 
-      <para>Le type de <varname>packaging</varname> <varname>apk</varname> permet d'activer le cycle de vie spécifique à Android.
-      Il prend soin de tous les appels aux outils du SDK Android,  gestion des ressources, conversion du bytecode Java…</para> 
+      <para>Le type de <varname>packaging</varname> <varname>apk</varname> permet d'activer le 
+      cycle de vie spécifique à Android. Il gère tous les appels aux outils du SDK Android pour
+      traiter les ressources, convertir le bytecode Java, etc.</para>
 
-      <para>La dépendance vers le JAR de la plate-forme doit utiliser la version de la cible telle qu'elle a été publiée dans le dépôt Maven par l'Android SDK Deployer.
-      Il récupère les versions à partir des valeurs <varname>Platform.Version</varname> et <varname>Pkg.Revision</varname> 
-      renseignées dans le fichier de propriétés <varname>source.properties</varname> qui se trouve dans le dossier de la plate-forme du SDK Android.
-      Les valeurs possibles sont à ce jour : <varname>1.1_r1</varname>, <varname>1.5_r3</varname>,
+      <para>La dépendance vers le JAR de la plate-forme doit utiliser la version de la cible telle 
+      qu'elle a été publiée dans le dépôt Maven par l'Android SDK Deployer. Il récupère les
+      versions à partir des valeurs <varname>Platform.Version</varname> et <varname>Pkg.Revision</varname>
+      renseignées dans le fichier de propriétés <varname>source.properties</varname> qui se trouve 
+      dans le dossier de la plate-forme du SDK Android.  Les valeurs possibles sont à ce jour :
+      <varname>1.1_r1</varname>, <varname>1.5_r3</varname>,
       <varname>1.6_r2</varname>, <varname>2.0_r1</varname>,
-      <varname>2.0.1_r1</varname> and <varname>2.1_r1</varname>. 
+      <varname>2.0.1_r1</varname> et <varname>2.1_r1</varname>.
       Naviguez simplement dans votre dépôt pour connaître la liste exacte de ces versions.</para>
 
       <para>La configuration du plugin Maven Compiler dans le <varname>build</varname> est nécessaire 
