@@ -414,7 +414,7 @@
     </section>
 
     <section id="android-dev-sect-dependencies">
-      <title>Utilisation de dépendances externes</title>
+      <title>Utiliser des dépendances externes</title>
 
       <para>Lorsque vous utilisez le plugin Maven Android, trois types de dépendances sont pris en compte.</para>
 
