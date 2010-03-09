@@ -71,7 +71,7 @@
     </section>
 
     <section id="android-dev-sect-repository-install">
-      <title>Installation des artifacts Android dans un dépôt Maven</title>
+      <title>Installation des artefacts Android dans un dépôt Maven</title>
 
       <para>Une fois que le SDK est installé, vous devez mettre à disposition de Maven les différents
       fichiers <acronym>JAR</acronym>s des <acronym>API</acronym>s. L'outil Maven Android SDK
@@ -83,8 +83,8 @@
       <para>Cet outil, le Maven Android SDK Deployer, est disponible à cette adresse :</para>
       <para><uri>http://github.com/mosabua/maven-android-sdk-deployer</uri></para>
       <para>Cliquez simplement sur le bouton <varname>Download Source</varname> et dézippez
-      l'archive téléchargée dans le dossier de votre choix. Un dossier avec un nom selon le format
-      <varname>mosabua-maven-android-sdk-deployer-XXX</varname> sera alors créé, où
+      l'archive téléchargée dans le dossier de votre choix. Cette opération va créer un répertoire
+      dont le nom suit le format <varname>mosabua-maven-android-sdk-deployer-XXX</varname>  où
       <varname>XXX</varname> désigne un numéro de révision du type <varname>df824df</varname>.
       Déplacez-vous ensuite dans ce nouveau répertoire :
       <programlisting>cd mosabua-maven-android-sdk-deployer-df824df</programlisting></para>
@@ -92,29 +92,35 @@
       <section id="android-dev-sect-repository-install-local">
         <title>Installation dans votre dépôt local</title>
 
-        <para>Pour installer les JARs d'API de différentes versions de plates-formes dans votre dépôt local, 
-        vous pouvez exécuter la commande  suivante à partir du dossier de votre deployer : 
-	<programlisting>mvn clean install</programlisting>
-	Par défaut, cette commande installe les JARs <varname>android.jar</varname> et <varname>maps.jar</varname> dans votre dépôt local.
-	Vous devriez donc trouver ces fichiers tout juste installés dans les groupes <varname>android</varname> et <varname>com.google.android.maps</varname> 
-        dans le répertoire <filename>~/.m2/repository</filename>.</para>
+        <para>Pour installer les fichiers JARs des APIs des différentes versions de plates-forme
+        dans votre dépôt local, vous pouvez exécuter la commande suivante à partir du répertoire
+        <filename>deployer</filename> :
+        <programlisting>mvn clean install</programlisting>
+        Par défaut, cette commande installe les fichiers JARs <varname>android.jar</varname> et
+        <varname>maps.jar</varname> dans votre dépôt local.	Vous devriez donc trouver ces fichiers
+        fraichement installés dans les avec pour groupe <varname>android</varname> et
+        <varname>com.google.android.maps</varname> dans le répertoire
+        <filename>~/.m2/repository</filename>.</para>
       </section>
 
       <section id="android-dev-sect-repository-install-remote">
         <title>Installation dans un dépôt distant</title>
 
-        <para>Le mécanisme précédent fonctionne très bien pour une seule machine, mais si vous devez fournir ces artefacts à une équipe de développeurs,
-        vous voudrez probablement déployer ces mêmes artefacts sur un dépôt distant accessible par l'ensemble des utilisateurs.
-	Si vous n'utilisez pas de gestionnaire de dépôt, envisagez l'installation de Nexus avec un utilisateur configuré pour déployer les artefacts sur un dépôt.
-	Pour cela, nous vous encourageons à lire les consignes d'installation de Nexus qui sont disponibles gratuitement à cette adresse dans son livre en ligne :
-        <ulink url="http://www.sonatype.com/books/nexus-book/reference/install.html">Nexus Installation chapter</ulink>.</para>
+        <para>Le mécanisme précédent fonctionne très bien pour une seule machine, mais si vous devez
+        fournir ces artefacts à une équipe de développeurs, vous voudrez probablement déployer ces
+        mêmes artefacts sur un dépôt distant accessible à l'ensemble des utilisateurs. Si vous
+        n'utilisez pas de gestionnaire de dépôt, vous devriez envisager l'installation de Nexus,
+        configuré avec un utilisateur pouvant déployer des artefacts. Pour cela, nous vous
+        encourageons à vous reporter aux consignes d'installation de Nexus dans le livre gratuit et
+        en ligne qui lui est consacré à cette adresse : <ulink
+        url="http://www.sonatype.com/books/nexus-book/reference/install.html">Nexus Installation</ulink>.</para>
 
-        <para>En premier lieu, vous devez renseigner la propriété <varname>repo.url</varname> dans le <varname>pom.xml</varname> 
-        de plus haut niveau dans l'arborescence de dossier de l'outil  Android SDK Deployer afin de configurer le dépôt dans lequel vous voulez publier vos artefacts.
-	Ensuite, vous devez ajouter un serveur dans les settings Maven dans le fichier <filename>~/.m2/settings.xml</filename>.
-
-	<example>
-            <title>Extrait du fichier <varname>settings.xml</varname> qui indique les accès au dépôt et ses données d'authentification</title>
+        <para>En premier lieu, vous devez renseigner la propriété <varname>repo.url</varname> dans 
+        le <varname>pom.xml</varname> de plus haut niveau dans l'arborescence de répertoires de
+        l'outil Android SDK Deployer pour indiquer le dépôt sur lequel vous voulez publier vos
+        artefacts. Ensuite, vous devez ajouter ce serveur dans le fichier de configuration Maven
+        <filename>~/.m2/settings.xml</filename>. <example>
+            <title>Extrait du fichier <varname>settings.xml</varname> configurant l'accès au dépôt</title>
 
             <programlisting>&lt;settings&gt;
     &lt;servers&gt;
@@ -126,9 +132,9 @@
     &lt;/servers&gt;
 &lt;/settings&gt;
 </programlisting>
-          </example>
-	Une fois cette configuration effectuée, vous pouvez déployer vos artefacts en utilisant la commande <command>mvn deploy</command>. 
-	Lorsque celle-ci est terminée, vous devriez être capable de retrouver ces artefacts sur votre serveur distant.
+          </example>Une fois cette configuration effectuée, vous pouvez déployer les artefacts en
+          utilisant la commande <command>mvn deploy</command>. Lorsque celle-ci est terminée, vous
+          devriez retrouver ces artefacts sur votre serveur distant.
         <!-- TODO ??
           For more information about this stuff look at the documentation for the maven-deploy-plugin.
           or better chapter bla in this book.. --></para>
