@@ -461,7 +461,7 @@
           <listitem>
             <para>Tout projet Android, dont le un type de packaging est <varname>apk</varname>,
             et déclaré comme dépendance de type source, est intégré dans l'application courante
-            avec son code source et ses ressources pour construire une application combinant tout
+            avec ses assets et ses ressources pour construire une application combinant tout
             cela.<programlisting>&lt;dependency&gt;
   &lt;groupId&gt;com.simpligility.android&lt;/groupId&gt;
   &lt;artifactId&gt;tools&lt;/artifactId&gt;
@@ -497,7 +497,7 @@
   </section>
 
   <section id="android-dev-sect-custom-details">
-    <title>Plugin Maven Android en détails</title>
+    <title>Le plugin Maven Android en détails</title>
 
     <section id="android-dev-sect-custom-lifecycle">
       <title>Cycle de vie du plugin Maven Android</title>
@@ -506,8 +506,9 @@
           <primary>Plugin Maven Android</primary>
 
           <secondary>cycle de vie</secondary>
-        </indexterm>Le plugin Maven Android personnalise le cycle de vie en fonction du type de packaging.
-	Si votre projet est du type APK, le plugin Maven Android exécutera son cycle de vie spécifique.</para>
+        </indexterm>Le plugin Maven Android personnalise le cycle de vie en fonction du type de 
+        packaging. Si votre projet est du type <varname>apk</varname>, le plugin Maven Android
+        exécutera son cycle de vie spécifique.</para>
 
       <para>Voici la description des différentes phases de ce cycle de vie personnalisé.</para>
 
@@ -516,8 +517,9 @@
           <term>Phase generate-sources</term>
 
           <listitem>
-            <para>Utilise l'Android Asset Packaging Tool (<varname>aapt</varname>) de la plateforme spécifiée dans le pom pour packager certaines ressources comme le fichier 
-            <varname>AndroidManifest.xml</varname>, les assets et  les ressources.</para>
+            <para>Utilise l'Android Asset Packaging Tool (<varname>aapt</varname>) de la plateforme
+            spécifiée dans le pom pour packager certaines ressources comme le fichier
+            <varname>AndroidManifest.xml</varname>, les assets et les ressources.</para>
           </listitem>
         </varlistentry>
 
@@ -525,8 +527,9 @@
           <term>Phase process-classes</term>
 
           <listitem>
-            <para>Exécute l'outil <varname>dx</varname> de la plateforme spécifiée dans le pom pour convertir toutes les classes 
-	    (bibliothèques, ressources et code du projet) en code exécutable au format Dalvik.</para>
+            <para>Exécute l'outil <varname>dx</varname> de la plateforme spécifiée dans le fichier
+            <filename>pom.xml</filename> pour convertir toutes les classes (bibliothèques,
+            ressources et code du projet) en code exécutable au format Dalvik.</para>
           </listitem>
         </varlistentry>
 
@@ -534,7 +537,9 @@
           <term>Phase package</term>
 
           <listitem>
-            <para>Exécute l'outil de packaging Android (<varname>apk</varname>) du SDK pour créer et signer le package APK pour qu'il puisse être installé sur un émulateur ou un téléphone.</para>
+            <para>Exécute l'outil de packaging Android (<varname>apk</varname>) du SDK pour créer
+            et signer le fichier package  Adroid (apk) afin qu'il puisse être installé sur un
+            émulateur ou un téléphone.</para>
           </listitem>
         </varlistentry>
 
@@ -542,7 +547,8 @@
           <term>Phase pre-integration-test</term>
 
           <listitem>
-            <para>Déploie le package de l'application Android (APK) comme n'importe quelle dépendance du type de packaging APK sur l'émulateur ou le téléphone.</para>
+            <para>Déploie le package de l'application Android (apk) comme n'importe quelle 
+            dépendance du type de packaging <varname>apk</varname> sur l'émulateur ou le téléphone.</para>
           </listitem>
         </varlistentry>
 
@@ -550,7 +556,7 @@
           <term>Phase integration-test</term>
 
           <listitem>
-            <para>Exécute les classes de test d'instrumentation pour tester l'application déployée.</para>
+            <para>Teste l'application déployée avec ses tests d'instrumentation.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -570,7 +576,7 @@
           <term>android:apk</term>
 
           <listitem>
-            <para>Le goal <varname>apk</varname> lance la création du package android (apk).
+            <para>Le goal <varname>apk</varname> lance la création du package Android (apk).
 	    Par défaut, le plugin signe le fichier en utilisant le keystore de debug.
 	    Le paramètre <programlisting>&lt;sign&gt;&lt;debug&gt;false&lt;debug&gt;&lt;sign&gt;</programlisting> peut 
 	    être configuré pour désactiver ce mécanisme.</para> 
@@ -581,9 +587,11 @@
           <term>android:deploy</term>
 
           <listitem>
-            <para>Le goal <varname>deploy</varname> lance le déploiement d'un fichier APK vers un émulateur ou un téléphone connecté.
-	    Ce goal est automatiquement lancé lors de l'exécution de la phase <varname>integration-test</varname> lorsqu'un projet contient des tests d'instrumentation
-	    (<command>mvn install</command> ou <command>mvn integration-test</command>).</para>
+            <para>Le goal <varname>deploy</varname> lance le déploiement d'un fichier 
+            <varname>apk</varname> vers un émulateur ou un téléphone connecté. Ce goal est
+            automatiquement exécuté durant la phase <varname>integration-test</varname>
+            lorsqu'un projet contient des tests d'instrumentation
+            (<command>mvn install</command> ou <command>mvn integration-test</command>).</para>
           </listitem>
         </varlistentry>
 
@@ -591,11 +599,14 @@
           <term>android:deploy-dependencies</term>
 
           <listitem>
-            <para>Le goal <varname>deploy-dependencies</varname> déploie toutes les dépendances directes du type <varname>&lt;type&gt;apk&lt;/type&gt;</varname> dans ce projet.
-	    Ce goal est souvent utilisé sur un projet qui contient des tests d'instrumentation pour déployer 
-	    l'APK de l'application à tester avant le déploiement de l'APK contenant les classes de tests. 
-	    Ce goal est automatiquement exécuté  lors de la phase  <varname>integration-test</varname> lorsqu'un projet contient des tests d'instrumentation
-	    (<command>mvn install</command> ou <command>mvn integration-test</command>).</para>
+            <para>Le goal <varname>deploy-dependencies</varname> déploie toutes les dépendances 
+            directes de type <sgmltag>&lt;type&gt;apk&lt;/type&gt;</sgmltag> dans ce projet. Ce goal
+            est souvent utilisé sur un projet qui contient des tests d'instrumentation pour déployer
+            le fichier <filename>apk</filename> de l'application à tester avant le déploiement du
+            fichier <filename>apk</filename> contenant les classes de tests. Ce goal est 
+            automatiquement exécuté lors de la phase <varname>integration-test</varname> lorsqu'un
+            projet contient des tests d'instrumentation
+            (<command>mvn install</command> ou <command>mvn integration-test</command>).</para>
           </listitem>
         </varlistentry>
 
@@ -603,7 +614,8 @@
           <term>android:dex</term>
 
           <listitem>
-            <para>Le goal <varname>dex</varname> convertit les classes Java compilées en en code exécutation Dalivk (format DEX).</para>
+            <para>Le goal <varname>dex</varname> convertit les classes Java compilées en en code 
+            d'exécution Dalivk (format DEX).</para>
           </listitem>
         </varlistentry>
 
@@ -611,8 +623,9 @@
           <term>android:emulator-start</term>
 
           <listitem>
-            <para>Le goal <varname>emulator-start</varname> démarre un émulateur.
-            Les paramètres de démarrage peuvent être configurés dans la balise <varname>configuration</varname> du plugin Maven Android dans le <varname>pom.xml</varname>
+            <para>Le goal <varname>emulator-start</varname> démarre un émulateur. Les paramètres de
+            démarrage peuvent être configurés dans la balise <varname>configuration</varname> du
+            plugin Maven Android dans le fichier <filename>pom.xml</filename>
             <programlisting>&lt;configuration&gt;
   ...
   &lt;emulator&gt;
@@ -621,7 +634,8 @@
     &lt;options&gt;-no-skin&lt;/options&gt;
   &lt;/emulator&gt;
   ...
-&lt;/configuration&gt;               </programlisting> ou par l'intermédiaire de la ligne de commande à l'extérieur du projet. 
+&lt;/configuration&gt;               </programlisting>
+            ou via la ligne de commande, et donc en dehors du projet.
 <programlisting>mvn android:emulator-start \
     -Dandroid.emulator.avd=Default \
     -Dandroid.emulator.options=-no-skin \
@@ -633,7 +647,8 @@
           <term>android:emulator-stop</term>
 
           <listitem>
-            <para>Le goal <varname>emulator-stops</varname> arrête un émulateur Android. Il peut être utilisé dans n'importe quel dossier.</para>
+            <para>Le goal <varname>emulator-stops</varname> arrête un émulateur Android. Il peut
+            être utilisé dans n'importe quel dossier.</para>
           </listitem>
         </varlistentry>
 
@@ -641,14 +656,17 @@
           <term>android:generate-sources</term>
 
           <listitem>
-            <para>Le goal <varname>generate-sources</varname> génère le fichier <varname>R.java</varname> en fonction des ressources spécifiées 
-	    dans le paramètre <varname>resources</varname> de la configuration.
-	    Il génère les fichiers Java en fonction des fichiers aidl.</para>
+            <para>Le goal <varname>generate-sources</varname> génère le fichier 
+            <filename>R.java</filename> en fonction des ressources spécifiées dans le paramètre
+            <varname>resources</varname> de la configuration. Il génère les fichiers Java en
+            fonction des fichiers <varname>aidl</varname>.</para>
 
-            <para>Si le paramètre de configuration <varname>deleteConflictingFiles</varname> est à <varname>true</varname> (valeur par défaut), 
-            ce goal supprime n'importe quel fichier <varname>R.java</varname> qu'il trouve dans le répertoire source, 
-	    supprime n'importe quel fichier .java lorsqu'un fichier .aidl du même nom existe,
-	    et supprime les fichiers <varname>Thumbs.db</varname> trouvés dans le répertoire contenant les ressources.</para>
+            <para>Si le paramètre de configuration <varname>deleteConflictingFiles</varname> est
+            à <varname>true</varname> (valeur par défaut), ce goal supprimedu répertoire
+            contenant les sources tout fichier <filename>R.java</filename> et tous les fichiers
+            <filename>.java</filename> lorsqu'un fichier <filename>.aidl</filename> du même nom
+            existe, et enfin, il supprime tous les fichiers <filename>Thumbs.db</filename> trouvés
+            dans le répertoire de ressources.</para>
           </listitem>
         </varlistentry>
 
@@ -656,8 +674,8 @@
           <term>android:instrument</term>
 
           <listitem>
-            <para>The <varname>instrument</varname> goal runs the
-            instrumentation android package on the device/emulator.</para>
+            <para>Le goal <varname>instrument</varname> goal exécute le package Android contenant
+            les tests d'instrumentation sur un téléphone connecté ou un émulateur.</para>
           </listitem>
         </varlistentry>
 
@@ -665,9 +683,12 @@
           <term>android:internal-integration-test</term>
 
           <listitem>
-            <para>Le goal <varname>internal-integration-test</varname> est appelé automatiquement lorsque la phase <varname>integration-test</varname> du cycle de vie est exécutée.
-	    Il détermine s'il faut appeler le goal <varname> instrument</varname> durant cette phase en se basant sur l'existence de classes de tests d'instrumentation dans le projet courant.
-	    Ce goal est interne au cycle de vie du plugin. Il ne doit pas être utilisé seul à partir de la ligne de commande.</para> 
+            <para>Le goal <varname>internal-integration-test</varname> est appelé automatiquement
+            lorsque la phase <varname>integration-test</varname> du cycle de vie est exécutée.
+            Il détermine s'il faut appeler le goal <varname>instrument</varname> durant cette phase
+            en se basant sur l'existence de classes de tests d'instrumentation dans le projet courant.
+            Ce goal est interne au cycle de vie du plugin. Il ne doit pas être utilisé seul à
+            partir de la ligne de commande.</para>
           </listitem>
         </varlistentry>
 
@@ -675,9 +696,12 @@
           <term>android:internal-pre-integration-test</term>
 
           <listitem>
-            <para>Le goal <varname>internal-pre-integration-test</varname> est appelé automatiquement lorsque la phase <varname>pre-integration-test</varname> du cycle de vie est exécutée.
-	    Il détermine s'il faut appeler les goals <varname>android:deploy-dependencies</varname> et <varname>android:deploy</varname> de cette phase.
-	    Ce goal est interne au cycle de vie du plugin. Il ne doit pas être utilisé seul à partir de la ligne de commande.</para> 
+            <para>Le goal <varname>internal-pre-integration-test</varname> est appelé
+            automatiquement lorsque la phase <varname>pre-integration-test</varname> du cycle de vie
+            est exécutée. Il détermine s'il faut appeler les goals
+            <varname>android:deploy-dependencies</varname> et <varname>android:deploy</varname>
+            durant cette phase. Ce goal est interne au cycle de vie du plugin. Il ne doit pas être
+            utilisé seul à partir de la ligne de commande.</para>
           </listitem>
         </varlistentry>
 
@@ -685,7 +709,8 @@
           <term>android:pull</term>
 
           <listitem>
-            <para>Le goal <varname>pull</varname> peut être utilisé pour copier des fichiers ou des répertoires à partir d'un téléphone ou d'un émulateur connecté.</para>
+            <para>Le goal <varname>pull</varname> peut être utilisé pour copier des fichiers ou des
+            répertoires à partir d'un téléphone connecté ou d'un émulateur.</para>
           </listitem>
         </varlistentry>
 
@@ -693,7 +718,8 @@
           <term>android:push</term>
 
           <listitem>
-            <para>Le goal <varname>push</varname> peut être utilisé pour copier des fichiers ou des répertoires sur un téléphone ou un émulateur connecté.</para>
+            <para>Le goal <varname>push</varname> peut être utilisé pour copier des fichiers ou 
+            des répertoires sur un téléphone connecté ou un émulateur.</para>
           </listitem>
         </varlistentry>
 
@@ -701,7 +727,8 @@
           <term>android:undeploy</term>
 
           <listitem>
-            <para>Le goal <varname>undeploy</varname> supprime un APK d'un téléphone ou d'un émulateur connecté.</para>
+            <para>Le goal <varname>undeploy</varname> supprime un packag Android
+            <varname>apk</varname> d'un téléphone connecté ou d'un émulateur.</para>
           </listitem>
         </varlistentry>
       </variablelist>
