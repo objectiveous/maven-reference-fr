@@ -442,7 +442,8 @@
           <term>Dépendances vers d'autres projets Android</term>
 
           <listitem>
-            <para>Tout autre projet Android avec un type de packaging APK déclaré comme dépendance d'un projet Android est déployé dans l'émulateur 
+            <para>Tout projet Android, dont le type de packaging est <varname>apk</varname>, et
+            qui est déclaré comme dépendance d'un projet Android est déployé dans l'émulateur
             avant l'exécution des tests d'instrumentation durant la phase des tests d'intégration.
 	    <programlisting>&lt;dependency&gt;
   &lt;groupId&gt;com.simpligility.android&lt;/groupId&gt;
@@ -455,17 +456,19 @@
         </varlistentry>
 
         <varlistentry>
-          <term>Dépendances vers d'autres sources de projets Android</term>
+          <term>Dépendances le code source d'autres projets Android</term>
 
           <listitem>
-            <para>Tout autre projet Android avec un type de packaging APK déclaré comme dépendance de source est poussé dans l'application courante avec leurs assets et ressources.
-	    Tout ce contenu sera ensuite utilisé pour construire une application combinant tous ces artefacts.<programlisting>&lt;dependency&gt;
+            <para>Tout projet Android, dont le un type de packaging est <varname>apk</varname>,
+            et déclaré comme dépendance de type source, est intégré dans l'application courante
+            avec son code source et ses ressources pour construire une application combinant tout
+            cela.<programlisting>&lt;dependency&gt;
   &lt;groupId&gt;com.simpligility.android&lt;/groupId&gt;
   &lt;artifactId&gt;tools&lt;/artifactId&gt;
   &lt;version&gt;0.1&lt;/version&gt;
   &lt;type&gt;apksources&lt;/type&gt;
 &lt;/dependency&gt;
-</programlisting> Pour plus de détail sur cette solution, consultez l'adresse suivante :
+</programlisting> Pour plus de détails sur cette solution, consultez l'adresse suivante :
             <uri>http://code.google.com/p/maven-android-plugin/wiki/ApkSourcesDependency</uri>.</para>
           </listitem>
         </varlistentry>
