@@ -1593,7 +1593,7 @@ public class ZipForkMojo extends AbstractMojo
       Vous pouvez associer plusieurs goals à une phase en utilisant une liste séparée par des virgules.</para>   
 
       <para><example id="ex-override-lifecycle">
-          <title>Surcharge du cycle de vie par défaut</title>
+          <title>Redéfinition du cycle de vie par défaut</title>
 
           <programlisting language="xml">&lt;component-set&gt;
   &lt;components&gt;
