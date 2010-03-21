@@ -1481,7 +1481,7 @@ private ZipArchiver zipArchiver;</programlisting>
 
           <listitem>
             <para>Cette annotation provoque l'exécution du cycle de vie alternatif. Un cycle de vie personnalisé peut être défini dans le fichier
-            <filename>META-INF/maven/lifecycle.xml</filename>.</para>
+            <filename>META-INF/maven/lifecycles.xml</filename>.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -1491,13 +1491,13 @@ private ZipArchiver zipArchiver;</programlisting>
       <title>Création d'un cycle de vie personnalisé</title>
 
       <para>Un cycle de vie personnalisé doit être packagé dans un plugin dans un fichier 
-      <filename>META-INF/maven/lifecycle.xml</filename> dans l'un des dossiers de ressources : par exemple <filename>src/main/resources</filename>.
-      Le fichier  <filename>lifecycle.xml</filename> suivant déclare un cycle de vie nommé 
+      <filename>META-INF/maven/lifecycles.xml</filename> dans l'un des dossiers de ressources : par exemple <filename>src/main/resources</filename>.
+      Le fichier  <filename>lifecycles.xml</filename> suivant déclare un cycle de vie nommé 
       <varname>zipcycle</varname>. Celui-ci contient un unique goal,
       <varname>zip</varname>, dans une seule phase, <varname>package</varname>.</para>
 
       <para><example>
-          <title>Définition d'un cycle de vie par défaut dans le fichier lifecycle.xml</title>
+          <title>Définition d'un cycle de vie par défaut dans le fichier <filename>lifecycles.xml</filename></title>
 
           <programlisting language="xml">&lt;lifecycles&gt;
   &lt;lifecycle&gt;
